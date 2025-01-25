@@ -33,6 +33,8 @@
             "@widgets/*": ["src/app/widgets/*"],
             "@layouts": ["src/app/layouts"],
             "@layouts/*": ["src/app/layouts/*"],
+            "@pages": ["src/app/pages"],
+            "@pages/*": ["src/app/pages/*"],
             "@app/icons": ["src/assets/icons"],
             "@app/icons/*": ["src/assets/icons/*"],
             "@app/shared": ["src/app/shared"],

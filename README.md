@@ -46,7 +46,7 @@ This folder includes components used to conduct layouts:
 -   mobile-layout
 -   account-settings-layout
 
-### 5. static-pages
+### 5. pages
 
 This folder includes modules handling non-business logic:
 
