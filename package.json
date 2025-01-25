@@ -12,7 +12,8 @@
         "lint": "ng lint",
         "prepare": "husky",
         "pre-commit": "npx lint-staged",
-        "generate-icons": "svg-to-ts-constants"
+        "generate-icons": "svg-to-ts-constants",
+        "json-server": "json-server --watch ./data/db.json --routes ./data/routes.json"
     },
     "private": true,
     "dependencies": {
