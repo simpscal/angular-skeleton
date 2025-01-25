@@ -106,6 +106,34 @@
                     "options": {
                         "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
                     }
+                },
+                "storybook": {
+                    "builder": "@storybook/angular:start-storybook",
+                    "options": {
+                        "configDir": ".storybook",
+                        "browserTarget": "app:build",
+                        "compodoc": false,
+                        "port": 6006,
+                        "assets": ["src/assets/images/favicon.ico", "src/assets"],
+                        "styles": ["node_modules/devextreme/dist/css/dx.light.css", "src/styles/style.scss"],
+                        "stylePreprocessorOptions": {
+                            "includePaths": ["src/styles"]
+                        }
+                    }
+                },
+                "build-storybook": {
+                    "builder": "@storybook/angular:build-storybook",
+                    "options": {
+                        "configDir": ".storybook",
+                        "browserTarget": "app:build",
+                        "compodoc": false,
+                        "outputDir": "storybook-static",
+                        "assets": ["src/assets/images/favicon.ico", "src/assets"],
+                        "styles": ["node_modules/devextreme/dist/css/dx.light.css", "src/styles/style.scss"],
+                        "stylePreprocessorOptions": {
+                            "includePaths": ["src/styles"]
+                        }
+                    }
                 }
             }
         }

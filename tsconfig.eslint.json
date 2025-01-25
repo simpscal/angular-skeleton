@@ -1,6 +1,6 @@
 {
     "extends": "./tsconfig.json",
-    "include": ["src"],
-    "files": ["tailwind.config.js"],
+    "include": ["src", "stories"],
+    "files": ["tailwind.config.js", ".storybook/main.ts"],
     "exclude": ["node_modules", "dist"]
 }
