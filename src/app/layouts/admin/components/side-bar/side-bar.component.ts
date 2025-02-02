@@ -9,7 +9,6 @@ const DEVEXTREMES = [DxScrollViewModule, DxListModule];
 
 @Component({
     selector: 'app-side-bar',
-    standalone: true,
     imports: [CommonModule, RouterModule, ...DEVEXTREMES],
     templateUrl: './side-bar.component.html',
     styleUrl: './side-bar.component.scss',

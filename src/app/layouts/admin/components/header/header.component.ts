@@ -6,7 +6,6 @@ const DEVEXTREMES = [DxToolbarModule];
 
 @Component({
     selector: 'app-header',
-    standalone: true,
     imports: [CommonModule, ...DEVEXTREMES],
     templateUrl: 'header.component.html',
     styleUrl: './header.component.scss',

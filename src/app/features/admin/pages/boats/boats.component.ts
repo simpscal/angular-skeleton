@@ -13,7 +13,6 @@ const DEVEXTREMES = [DxDataGridModule, DxLoadPanelModule];
 
 @Component({
     selector: 'app-admin-boats',
-    standalone: true,
     imports: [CommonModule, RouterModule, ...DEVEXTREMES],
     providers: [BoatService],
     templateUrl: './boats.component.html',

@@ -15,7 +15,6 @@ const WIDGETS = [ButtonComponent];
 
 @Component({
     selector: 'app-login',
-    standalone: true,
     imports: [CommonModule, RouterModule, ...DEVEXTREMES, ...WIDGETS],
     templateUrl: './login.component.html',
     styleUrl: './login.component.scss',

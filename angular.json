@@ -15,25 +15,22 @@
             "prefix": "app",
             "architect": {
                 "build": {
-                    "builder": "@angular-devkit/build-angular:browser-esbuild",
+                    "builder": "@angular-devkit/build-angular:application",
                     "options": {
-                        "outputPath": "dist/app",
+                        "outputPath": {
+                            "base": "dist/app"
+                        },
                         "index": "src/index.html",
-                        "main": "src/main.ts",
                         "polyfills": ["zone.js"],
                         "tsConfig": "tsconfig.app.json",
                         "inlineStyleLanguage": "scss",
-                        "allowedCommonJsDependencies": [
-                            "devextreme-quill",
-                            "devexpress-diagram",
-                            "devexpress-gantt",
-                            "jszip"
-                        ],
+                        "allowedCommonJsDependencies": ["devextreme-quill", "devexpress-diagram", "devexpress-gantt"],
                         "assets": ["src/assets/images/favicon.ico", "src/assets"],
                         "styles": ["node_modules/devextreme/dist/css/dx.light.css", "src/styles/style.scss"],
                         "stylePreprocessorOptions": {
                             "includePaths": ["src/styles"]
-                        }
+                        },
+                        "browser": "src/main.ts"
                     },
                     "configurations": {
                         "production": {
@@ -59,9 +56,7 @@
                             ]
                         },
                         "development": {
-                            "buildOptimizer": false,
                             "optimization": false,
-                            "vendorChunk": true,
                             "extractLicenses": false,
                             "sourceMap": false,
                             "namedChunks": true,

@@ -5,7 +5,6 @@ import { BoatService } from './services';
 
 @Component({
     selector: 'app-admin',
-    standalone: true,
     imports: [RouterOutlet],
     providers: [BoatService],
     template: `<router-outlet></router-outlet>`,

@@ -13,7 +13,6 @@ const WIDGETS = [ButtonComponent];
 
 @Component({
     selector: 'app-container-popup',
-    standalone: true,
     imports: [CommonModule, ...DEVEXTREMES, ...WIDGETS],
     templateUrl: './container-popup.component.html',
     styleUrls: ['./container-popup.component.scss'],

@@ -11,7 +11,6 @@ const WIDGETS = [ButtonComponent];
 
 @Component({
     selector: 'app-confirm-popup',
-    standalone: true,
     imports: [CommonModule, ...DEVEXTREMES, ...WIDGETS],
     templateUrl: './confirm-popup.component.html',
     styleUrls: ['./confirm-popup.component.scss'],

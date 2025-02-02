@@ -13,7 +13,6 @@ const COMPONENTS = [HeaderComponent, FooterComponent, SideBarComponent];
 @Component({
     selector: 'app-admin-layout',
     imports: [CommonModule, RouterModule, ...DEVEXTREMES, ...COMPONENTS],
-    standalone: true,
     templateUrl: './admin.component.html',
     styleUrl: './admin.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush

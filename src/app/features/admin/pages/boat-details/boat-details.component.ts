@@ -15,7 +15,6 @@ const WIDGETS = [ButtonComponent, ContainerPopupComponent];
 
 @Component({
     selector: 'app-boat-details',
-    standalone: true,
     imports: [CommonModule, ...DEVEXTREMES, ...WIDGETS],
     providers: [BoatService],
     templateUrl: './boat-details.component.html',
