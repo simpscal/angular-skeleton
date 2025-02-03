@@ -1,21 +1,22 @@
 import { ChangeDetectionStrategy, Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { finalize } from 'rxjs';
-import { DxLoadPanelModule, DxTextBoxModule } from 'devextreme-angular';
-import { ButtonComponent, ContainerPopupComponent } from '@widgets';
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
+
+import { PAGE_ROUTES } from '@app/shared/constants';
 
 import { BoatService } from '../../services';
 
 import { BoatViewModel } from '../../models/boat';
 
-const DEVEXTREMES = [DxTextBoxModule, DxLoadPanelModule];
-
-const WIDGETS = [ButtonComponent, ContainerPopupComponent];
+const PRIMES = [ButtonModule, InputTextModule, FormsModule];
 
 @Component({
     selector: 'app-boat-details',
-    imports: [CommonModule, ...DEVEXTREMES, ...WIDGETS],
+    imports: [CommonModule, ...PRIMES],
     providers: [BoatService],
     templateUrl: './boat-details.component.html',
     styleUrl: './boat-details.component.scss',
@@ -61,7 +62,7 @@ export class BoatDetailsComponent implements OnInit {
             .deleteBoat(this.ID)
             .pipe(finalize(() => this.isLoading.set(false)))
             .subscribe(() => {
-                this._router.navigate(['/admin/boats']);
+                this._router.navigate([PAGE_ROUTES.ADMIN_BOATS]);
             });
     };
 }

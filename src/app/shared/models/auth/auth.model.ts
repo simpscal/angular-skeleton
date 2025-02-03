@@ -2,7 +2,11 @@ export class AuthViewModel {
     email: string;
     password: string;
 
-    mapToRequest(): AuthRequestModel {
+    constructor(init?: Partial<AuthViewModel>) {
+        Object.assign(this, init);
+    }
+
+    toRequest() {
         return {
             email: this.email,
             password: this.password

@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 @Component({
-    selector: 'app-main-layout',
-    styleUrl: './main.component.scss',
+    selector: 'app-default-layout',
+    styleUrl: './default.component.scss',
     imports: [CommonModule, RouterModule],
-    templateUrl: './main.component.html',
+    templateUrl: './default.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MainLayoutComponent {}
+export class DefaultLayoutComponent {}

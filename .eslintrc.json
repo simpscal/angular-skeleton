@@ -60,19 +60,6 @@
                 "@typescript-eslint/prefer-for-of": "warn",
                 "@typescript-eslint/prefer-function-type": "error",
                 "@typescript-eslint/prefer-namespace-keyword": "error",
-                "@typescript-eslint/member-delimiter-style": [
-                    "error",
-                    {
-                        "multiline": {
-                            "delimiter": "semi",
-                            "requireLast": true
-                        },
-                        "singleline": {
-                            "delimiter": "semi",
-                            "requireLast": false
-                        }
-                    }
-                ],
                 "@typescript-eslint/no-misused-promises": [
                     "off",
                     {
@@ -89,8 +76,6 @@
                         "allowNullish": false
                     }
                 ],
-                "@typescript-eslint/semi": ["error", "always"],
-                "@typescript-eslint/type-annotation-spacing": "error",
                 "@typescript-eslint/unified-signatures": "error",
                 "@typescript-eslint/prefer-optional-chain": "warn",
                 "@typescript-eslint/member-ordering": "off",

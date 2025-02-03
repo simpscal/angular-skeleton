@@ -1,42 +1,27 @@
 <div class="h-full w-full flex justify-center items-center">
-    <div class="flex flex-col gap-4 justify-center px-2 w-96 h-48 rounded-lg shadow-md">
-        <dx-text-box
+    <form
+        class="flex flex-col gap-4 justify-center px-2 w-96 h-48 rounded-lg shadow-md"
+        [formGroup]="form">
+        <input
+            formControlName="email"
+            pInputText
             placeholder="Enter Your Email Address"
-            valueChangeEvent="input"
-            [(value)]="form.email">
-            <dx-validator (onValidated)="onValidated($event, 'email')">
-                <dxi-validation-rule
-                    message="This email address is required"
-                    type="required">
-                </dxi-validation-rule>
+            type="email" />
 
-                <dxi-validation-rule
-                    message="This email address is invalid"
-                    type="pattern"
-                    [pattern]="EMAIL_REGEX">
-                </dxi-validation-rule>
-            </dx-validator>
-        </dx-text-box>
-
-        <dx-text-box
-            mode="password"
+        <input
+            formControlName="password"
+            pInputText
             placeholder="Enter Your Password"
-            valueChangeEvent="input"
-            [(value)]="form.password">
-            <dx-validator (onValidated)="onValidated($event, 'password')">
-                <dxi-validation-rule
-                    message="This password is required"
-                    type="required">
-                </dxi-validation-rule>
-            </dx-validator>
-        </dx-text-box>
+            type="password" />
 
         <div class="flex gap-2 items-center justify-between">
-            <app-button
-                text="Login"
-                [disabled]="!validationGroup.isValidated"
-                (clicked)="onLogin()">
-            </app-button>
+            <p-button
+                label="Login"
+                severity="secondary"
+                type="submit"
+                [disabled]="!isFormValid"
+                (onClick)="onLogin()">
+            </p-button>
 
             <a
                 class="text-primary font-bold"
@@ -44,5 +29,5 @@
                 Sign In
             </a>
         </div>
-    </div>
+    </form>
 </div>

@@ -3,7 +3,6 @@ export const PAGE_ROUTES = {
     AUTH_SIGNUP: '/auth/sign-up',
 
     ADMIN: '/admin',
-    ADMIN_DASHBOARD: '/admin/dashboard',
     ADMIN_USERS: '/admin/users',
     ADMIN_BOATS: '/admin/boats',
 

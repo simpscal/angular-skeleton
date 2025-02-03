@@ -1,52 +1,45 @@
 <div class="relative w-full">
-    @if (isLoading()) {
-        <dx-load-panel
-            [showPane]="false"
-            [visible]="true">
-        </dx-load-panel>
-    } @else {
-        <div class="w-full p-3">
-            <div class="grid grid-cols-2 gap-5">
-                <dx-text-box [(value)]="boat().name"></dx-text-box>
+    <div class="w-full p-3">
+        <div class="grid grid-cols-2 gap-5">
+            <input
+                pInputText
+                [(ngModel)]="boat().name" />
 
-                <dx-text-box [(value)]="boat().region"></dx-text-box>
+            <input
+                pInputText
+                [(ngModel)]="boat().region" />
 
-                <dx-text-box [(value)]="boat().tripCategory"></dx-text-box>
+            <input
+                pInputText
+                [(ngModel)]="boat().tripCategory" />
 
-                <dx-text-box [(value)]="boat().driverContactInfo"></dx-text-box>
+            <input
+                pInputText
+                [(ngModel)]="boat().driverContactInfo" />
 
-                <dx-text-box [(value)]="boat().departingHarbor1"></dx-text-box>
+            <input
+                pInputText
+                [(ngModel)]="boat().departingHarbor1" />
 
-                <dx-text-box [(value)]="boat().departingHarbor2"></dx-text-box>
+            <input
+                pInputText
+                [(ngModel)]="boat().departingHarbor2" />
 
-                <dx-text-box [(value)]="boat().note"></dx-text-box>
+            <input
+                pInputText
+                [(ngModel)]="boat().note" />
 
-                <dx-text-box [(value)]="boat().organizerName"></dx-text-box>
-            </div>
-
-            <app-button
-                class="mt-5 block"
-                text="Delete"
-                type="danger"
-                width="16rem"
-                (clicked)="onDeleteBoatClicked()">
-            </app-button>
+            <input
+                pInputText
+                [(ngModel)]="boat().organizerName" />
         </div>
-    }
-</div>
 
-@if (isConfirmationPopupVisible()) {
-    <app-container-popup
-        title="Delete Boat!"
-        width="15rem"
-        [cancelButtonOptions]="{
-            visible: false
-        }"
-        [saveButtonOptions]="{
-            text: 'Confirm',
-            visible: true,
-            onClick: onDeleteBoat
-        }"
-        [(visible)]="isConfirmationPopupVisible">
-    </app-container-popup>
-}
+        <p-button
+            class="mt-5"
+            label="Delete"
+            severity="danger"
+            type="submit"
+            (onClick)="onDeleteBoatClicked()">
+        </p-button>
+    </div>
+</div>

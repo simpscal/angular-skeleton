@@ -13,10 +13,6 @@ const ROUTES: Routes = [
                 redirectTo: 'dashboard'
             },
             {
-                path: 'dashboard',
-                loadComponent: () => import('./pages/dashboard/dashboard.component').then((m) => m.DashboardComponent)
-            },
-            {
                 path: 'users',
                 loadComponent: () => import('./pages/users/users.component').then((m) => m.UsersComponent)
             },

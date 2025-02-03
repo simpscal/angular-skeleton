@@ -44,7 +44,7 @@ export class AuthService {
     }
 
     login(auth: AuthViewModel) {
-        return this._apiService.post('auth', auth.mapToRequest()).pipe(
+        return this._apiService.post('auth', auth.toRequest()).pipe(
             delay(1000),
             tap(() => {
                 LocalStorageUtility.storeSecretData(ACCESS_TOKEN_KEY, EXAMPLE_TOKEN);
