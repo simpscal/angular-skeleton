@@ -1,6 +1,12 @@
-import type { Preview } from '@storybook/angular';
+import { applicationConfig, Preview } from '@storybook/angular';
+import PRIMENG_PROVIDERS from '../src/app/@primeng/primeng.providers';
 
 const preview: Preview = {
+    decorators: [
+        applicationConfig({
+            providers: [...PRIMENG_PROVIDERS]
+        })
+    ],
     parameters: {
         controls: {
             matchers: {
@@ -11,5 +17,4 @@ const preview: Preview = {
     },
     tags: ['autodocs']
 };
-
 export default preview;
