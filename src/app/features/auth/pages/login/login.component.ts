@@ -1,51 +1,44 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
-import { DxTextBoxModule, DxValidatorModule } from 'devextreme-angular';
-import { ButtonComponent } from '@widgets';
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
+import { MessageModule } from 'primeng/message';
 
-import { EMAIL_REGEX, PAGE_ROUTES } from '@app/shared/constants';
 import { AuthViewModel } from '@app/shared/models';
 
 import { AuthService } from '@core/services';
 
-const DEVEXTREMES = [DxTextBoxModule, DxValidatorModule];
-
-const WIDGETS = [ButtonComponent];
+const MODULES = [CommonModule, RouterModule, FormsModule, ReactiveFormsModule];
+const PRIMES = [ButtonModule, InputTextModule, MessageModule];
 
 @Component({
     selector: 'app-login',
-    standalone: true,
-    imports: [CommonModule, RouterModule, ...DEVEXTREMES, ...WIDGETS],
+    imports: [...MODULES, ...PRIMES],
     templateUrl: './login.component.html',
     styleUrl: './login.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent {
-    EMAIL_REGEX = EMAIL_REGEX;
-    PAGE_ROUTES = PAGE_ROUTES;
+    form = this._formBuilder.group({
+        email: ['', [Validators.required, Validators.email]],
+        password: ['', [Validators.required, Validators.minLength(8)]]
+    });
 
-    validationGroup = {
-        email: false,
-        password: false,
-        isValidated: false
-    };
-
-    form = new AuthViewModel();
+    get isFormValid() {
+        return this.form.status === 'VALID';
+    }
 
     constructor(
         private _router: Router,
+        private _formBuilder: FormBuilder,
         private _authService: AuthService
     ) {}
 
-    onValidated(event: { isValid: boolean }, field: 'email' | 'password') {
-        this.validationGroup[field] = event.isValid;
-        this.validationGroup.isValidated = this.validationGroup.email && this.validationGroup.password;
-    }
-
     onLogin() {
-        this._authService.login(this.form).subscribe(() => {
-            this._router.navigate(['/']);
+        this._authService.login(new AuthViewModel(this.form.value)).subscribe(() => {
+            this._router.navigate(['/']).then();
         });
     }
 }

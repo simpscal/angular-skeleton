@@ -3,9 +3,8 @@ import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'app-svg-icon',
-    standalone: true,
     imports: [CommonModule],
-    template: `<ng-content></ng-content>`,
+    template: ` <ng-content></ng-content>`,
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SvgIconComponent implements OnInit {

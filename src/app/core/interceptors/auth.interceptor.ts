@@ -9,7 +9,7 @@ import { ACCESS_TOKEN_KEY, AUTH_HEADER_KEY, AUTH_SCHEME_KEY, PAGE_ROUTES } from 
 
 import { AuthService } from '@core/services';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class AuthInterceptor implements HttpInterceptor {
     constructor(
         private _router: Router,

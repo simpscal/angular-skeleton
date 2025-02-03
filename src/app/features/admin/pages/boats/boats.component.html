@@ -1,174 +1,19 @@
 <div class="h-full w-full">
-    @if (isLoading()) {
-        <dx-load-panel
-            [showPane]="false"
-            [visible]="true">
-        </dx-load-panel>
-    }
-
-    <dx-data-grid
-        class="h-full"
-        [columnHidingEnabled]="false"
-        [dataSource]="dataSource"
-        [hoverStateEnabled]="true"
-        [loadPanel]="{ enabled: false }"
-        [showBorders]="true"
-        [showRowLines]="true"
-        [visible]="isInitialized()">
-        <dxo-paging [pageSize]="20"></dxo-paging>
-
-        <dxo-pager
-            [allowedPageSizes]="[20, 50, 100]"
-            [showInfo]="true"
-            [showNavigationButtons]="true"
-            [showPageSizeSelector]="false">
-        </dxo-pager>
-
-        <dxo-filter-row
-            applyFilter="auto"
-            [visible]="true">
-        </dxo-filter-row>
-
-        <dxo-remote-operations
-            [filtering]="true"
-            [paging]="true"
-            [sorting]="true">
-        </dxo-remote-operations>
-
-        <dxi-column
-            alignment="center"
-            caption="Boat ID"
-            dataField="id"
-            dataType="string"
-            fixedPosition="left"
-            [cellTemplate]="'cellTemplate'"
-            [fixed]="true"
-            [minWidth]="100">
-            <div *dxTemplate="let data of 'cellTemplate'">
-                <a [routerLink]="['/admin/boats', data.data.id]">
-                    {{ data.data.id }}
-                </a>
+    <p-data-view
+        [paginator]="true"
+        [rows]="25"
+        [value]="boats()">
+        <ng-template
+            #list
+            let-items>
+            <div class="grid grid-cols-12 gap-4">
+                @for (item of items; track item.id) {
+                    <div class="col-span-3">{{ item.name }}</div>
+                    <div class="col-span-3">{{ item.driverName }}</div>
+                    <div class="col-span-3">{{ item.driverContactInfo }}</div>
+                    <div class="col-span-3">{{ item.organizerName }}</div>
+                }
             </div>
-        </dxi-column>
-
-        <dxi-column
-            alignment="left"
-            dataField="name"
-            dataType="string"
-            [caption]="'Boat name'"
-            [minWidth]="200">
-        </dxi-column>
-
-        <dxi-column
-            alignment="left"
-            dataField="driverId"
-            dataType="string"
-            [caption]="'Driver ID'"
-            [minWidth]="200">
-        </dxi-column>
-
-        <dxi-column
-            alignment="left"
-            dataField="driverName"
-            dataType="string"
-            [caption]="'Driver name'"
-            [minWidth]="200">
-        </dxi-column>
-
-        <dxi-column
-            alignment="center"
-            dataField="driverContactInfo"
-            dataType="number"
-            [caption]="'Driver contact info'"
-            [minWidth]="150">
-        </dxi-column>
-
-        <dxi-column
-            alignment="center"
-            dataField="organizerId"
-            dataType="number"
-            [caption]="'Organizer ID'"
-            [minWidth]="150">
-        </dxi-column>
-
-        <dxi-column
-            alignment="center"
-            dataField="organizerName"
-            dataType="string"
-            [caption]="'Organizer name'"
-            [minWidth]="200">
-        </dxi-column>
-
-        <dxi-column
-            alignment="center"
-            dataField="ownerId"
-            dataType="string"
-            [caption]="'Owner ID'"
-            [minWidth]="200">
-        </dxi-column>
-
-        <dxi-column
-            alignment="left"
-            dataField="ownerName"
-            dataType="string"
-            [caption]="'Owner Name'"
-            [minWidth]="150">
-        </dxi-column>
-
-        <dxi-column
-            alignment="left"
-            dataField="region"
-            dataType="string"
-            [caption]="'Region'"
-            [minWidth]="150">
-        </dxi-column>
-
-        <dxi-column
-            alignment="left"
-            dataField="departingHarbor1"
-            dataType="string"
-            [caption]="'Departing harbor 1'"
-            [minWidth]="150">
-        </dxi-column>
-
-        <dxi-column
-            alignment="left"
-            dataField="departingHarbor2"
-            dataType="string"
-            [caption]="'Departing harbor 2'"
-            [minWidth]="150">
-        </dxi-column>
-
-        <dxi-column
-            alignment="left"
-            dataField="pricePackageNumber"
-            dataType="string"
-            [caption]="'Price package number'"
-            [minWidth]="150">
-        </dxi-column>
-
-        <dxi-column
-            alignment="left"
-            dataField="tripCategory"
-            dataType="string"
-            [caption]="'Trip category'"
-            [minWidth]="150">
-        </dxi-column>
-
-        <dxi-column
-            alignment="left"
-            dataField="destination"
-            dataType="string"
-            [caption]="'Destination'"
-            [minWidth]="150">
-        </dxi-column>
-
-        <dxi-column
-            alignment="left"
-            dataField="note"
-            dataType="string"
-            [caption]="'Note'"
-            [minWidth]="150">
-        </dxi-column>
-    </dx-data-grid>
+        </ng-template>
+    </p-data-view>
 </div>

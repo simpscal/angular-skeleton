@@ -1,48 +1,47 @@
 <div class="h-full w-full flex justify-center items-center">
-    <div class="flex flex-col gap-4 justify-center px-2 w-96 h-48 rounded-lg shadow-md">
-        <dx-text-box
-            placeholder="Enter Your Email Address"
-            valueChangeEvent="input"
-            [(value)]="form.email">
-            <dx-validator (onValidated)="onValidated($event, 'email')">
-                <dxi-validation-rule
-                    message="This email address is required"
-                    type="required">
-                </dxi-validation-rule>
+    <form
+        class="flex flex-col gap-3 justify-center px-2 w-96 py-4 rounded-lg shadow-md"
+        [formGroup]="form">
+        <div class="inline-grid">
+            <input
+                formControlName="email"
+                pInputText
+                placeholder="Enter Your Email Address"
+                type="email" />
 
-                <dxi-validation-rule
-                    message="This email address is invalid"
-                    type="pattern"
-                    [pattern]="EMAIL_REGEX">
-                </dxi-validation-rule>
-            </dx-validator>
-        </dx-text-box>
-
-        <dx-text-box
-            mode="password"
-            placeholder="Enter Your Password"
-            valueChangeEvent="input"
-            [(value)]="form.password">
-            <dx-validator (onValidated)="onValidated($event, 'password')">
-                <dxi-validation-rule
-                    message="This password is required"
-                    type="required">
-                </dxi-validation-rule>
-            </dx-validator>
-        </dx-text-box>
-
-        <div class="flex gap-2 items-center justify-between">
-            <app-button
-                text="Login"
-                [disabled]="!validationGroup.isValidated"
-                (clicked)="onLogin()">
-            </app-button>
-
-            <a
-                class="text-primary font-bold"
-                [routerLink]="PAGE_ROUTES.AUTH_SIGNUP">
-                Sign In
-            </a>
+            @if (form.controls.email.dirty && form.controls.email.invalid) {
+                <p-message
+                    severity="error"
+                    size="small"
+                    variant="simple">
+                    Email is not valid
+                </p-message>
+            }
         </div>
-    </div>
+
+        <div class="inline-grid">
+            <input
+                formControlName="password"
+                pInputText
+                placeholder="Enter Your Password"
+                type="password" />
+
+            @if (form.controls.password.dirty && form.controls.password.invalid) {
+                <p-message
+                    severity="error"
+                    size="small"
+                    variant="simple">
+                    Password is not valid
+                </p-message>
+            }
+        </div>
+
+        <p-button
+            label="Login"
+            severity="primary"
+            type="submit"
+            [disabled]="!isFormValid"
+            (onClick)="onLogin()">
+        </p-button>
+    </form>
 </div>

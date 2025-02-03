@@ -1,13 +1,13 @@
+@use 'fonts/Inter/Inter_Regular.scss';
+@use 'fonts/Inter/Inter_Medium.scss';
+@use 'fonts/Inter/Inter_SemiBold.scss';
+
+@use 'global';
+@use 'variables';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import 'fonts/Inter/Inter_Regular.scss';
-@import 'fonts/Inter/Inter_Medium.scss';
-@import 'fonts/Inter/Inter_SemiBold.scss';
-
-@import 'global';
-@import 'variables';
 
 html,
 body {
@@ -31,5 +31,5 @@ body {
 
 a {
     font-weight: 500;
-    color: var(--color-primary);
+    color: var(--primary-color);
 }

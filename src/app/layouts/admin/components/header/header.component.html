@@ -1,10 +1,8 @@
-<dx-toolbar class="px-2 bg-slate-500">
-    <dxi-item location="before">
-        <div *dxTemplate="let data of 'item'">
-            <img
-                alt="logo"
-                src="assets/images/logo.png"
-                [width]="44" />
-        </div>
-    </dxi-item>
-</dx-toolbar>
+<p-toolbar>
+    <ng-template #start>
+        <img
+            alt="logo"
+            src="assets/images/logo.png"
+            [width]="44" />
+    </ng-template>
+</p-toolbar>

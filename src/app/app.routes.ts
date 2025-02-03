@@ -25,7 +25,7 @@ const ROUTES: Routes = [
     },
     {
         path: '',
-        loadComponent: () => import('./layouts/main/main.component').then((c) => c.MainLayoutComponent),
+        loadComponent: () => import('./layouts/default/default.component').then((c) => c.DefaultLayoutComponent),
         canActivate: [AuthGuard],
         children: []
     },

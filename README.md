@@ -15,58 +15,58 @@
 
 Angular-related things shared across modules:
 
--   directives
--   guards
--   pipes
--   interceptors
--   services
+- directives
+- guards
+- pipes
+- interceptors
+- services
 
 ### store
 
 The global store management.
 
-### widgets
+### ui
 
-Shared components used across modules.
+UI components used across modules.
 
 > These components should handle non-business logic and should not depend on features.
 
--   button
--   popup
--   chart
+- button
+- popup
+- chart
 
 ### layouts
 
 Components used to conduct layouts:
 
--   admin-layout
--   main-layout
--   mobile-layout
--   account-settings-layout
+- admin-layout
+- main-layout
+- mobile-layout
+- account-settings-layout
 
 ### pages
 
 Pages handling non-business logic:
 
--   landing-page
--   note-found-page
+- landing-page
+- note-found-page
 
 ### shared
 
 Typescript-related things shared across modules:
 
--   constants
--   models
--   enums
--   utilities
+- constants
+- models
+- enums
+- utilities
 
 ### features
 
 Pages handling business logic:
 
--   dashboard
--   email-settings
--   account-profile
+- dashboard
+- email-settings
+- account-profile
 
 ### features/shared
 
