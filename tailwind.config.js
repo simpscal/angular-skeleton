@@ -4,14 +4,14 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                primary: '#3B71CA',
-                secondary: '#9FA6B2',
-                success: '#14A44D',
-                danger: '#DC4C64',
-                warning: '#E4A11B',
-                info: '#54B4D3',
-                dark: '#332D2D',
-                light: '#FBFBFB'
+                primary: 'var(--primary-color)',
+                secondary: 'var(--secondary-color)',
+                success: 'var(--success-color)',
+                danger: 'var(--danger-color)',
+                warning: 'var(--warning-color)',
+                info: 'var(--info-color)',
+                dark: 'var(--dark-color)',
+                light: 'var(--light-color)'
             },
             fontFamily: {
                 primary: ['"Inter Regular"', '"sans-serif"'],
