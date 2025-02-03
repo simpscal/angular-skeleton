@@ -1,13 +1,13 @@
 ## Technologies Used
 
-|         Type         |          Name           |
-| :------------------: | :---------------------: |
-|     Css Library      |        Tailwind         |
-|      UI Library      |    Devextreme v23.1     |
-|   State Management   |        Ngxs v18         |
-|        Tools         | Eslint, Husky, Prettier |
-| Svg Icons Generation |        svg-to-ts        |
-|     Mock Server      |       json-server       |
+|       Type       |          Name           |
+| :--------------: | :---------------------: |
+|   Css Library    |        Tailwind         |
+|    UI Library    |         PrimeNG         |
+| State Management |          NGXS           |
+|      Tools       | Eslint, Husky, Prettier |
+| Icons Generation |        svg-to-ts        |
+|   Mock Server    |       json-server       |
 
 ## Project Structure
 
