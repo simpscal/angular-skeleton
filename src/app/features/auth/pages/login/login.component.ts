@@ -4,14 +4,14 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { Router, RouterModule } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
+import { MessageModule } from 'primeng/message';
 
-import { PAGE_ROUTES } from '@app/shared/constants';
 import { AuthViewModel } from '@app/shared/models';
 
 import { AuthService } from '@core/services';
 
 const MODULES = [CommonModule, RouterModule, FormsModule, ReactiveFormsModule];
-const PRIMES = [ButtonModule, InputTextModule];
+const PRIMES = [ButtonModule, InputTextModule, MessageModule];
 
 @Component({
     selector: 'app-login',
@@ -21,8 +21,6 @@ const PRIMES = [ButtonModule, InputTextModule];
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent {
-    PAGE_ROUTES = PAGE_ROUTES;
-
     form = new FormGroup({
         email: new FormControl('', [Validators.required, Validators.email]),
         password: new FormControl('', [Validators.required, Validators.minLength(8)])

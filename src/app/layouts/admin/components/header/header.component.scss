@@ -1,9 +1,0 @@
-@import 'variables';
-
-:host {
-    ::ng-deep {
-        .dx-toolbar .dx-toolbar-items-container {
-            height: $header-height;
-        }
-    }
-}

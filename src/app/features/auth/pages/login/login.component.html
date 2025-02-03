@@ -1,33 +1,47 @@
 <div class="h-full w-full flex justify-center items-center">
     <form
-        class="flex flex-col gap-4 justify-center px-2 w-96 h-48 rounded-lg shadow-md"
+        class="flex flex-col gap-3 justify-center px-2 w-96 py-4 rounded-lg shadow-md"
         [formGroup]="form">
-        <input
-            formControlName="email"
-            pInputText
-            placeholder="Enter Your Email Address"
-            type="email" />
+        <div class="inline-grid">
+            <input
+                formControlName="email"
+                pInputText
+                placeholder="Enter Your Email Address"
+                type="email" />
 
-        <input
-            formControlName="password"
-            pInputText
-            placeholder="Enter Your Password"
-            type="password" />
-
-        <div class="flex gap-2 items-center justify-between">
-            <p-button
-                label="Login"
-                severity="secondary"
-                type="submit"
-                [disabled]="!isFormValid"
-                (onClick)="onLogin()">
-            </p-button>
-
-            <a
-                class="text-primary font-bold"
-                [routerLink]="PAGE_ROUTES.AUTH_SIGNUP">
-                Sign In
-            </a>
+            @if (form.controls.email.dirty && form.controls.email.invalid) {
+                <p-message
+                    severity="error"
+                    size="small"
+                    variant="simple">
+                    Email is not valid
+                </p-message>
+            }
         </div>
+
+        <div class="inline-grid">
+            <input
+                formControlName="password"
+                pInputText
+                placeholder="Enter Your Password"
+                type="password" />
+
+            @if (form.controls.password.dirty && form.controls.password.invalid) {
+                <p-message
+                    severity="error"
+                    size="small"
+                    variant="simple">
+                    Password is not valid
+                </p-message>
+            }
+        </div>
+
+        <p-button
+            label="Login"
+            severity="secondary"
+            type="submit"
+            [disabled]="!isFormValid"
+            (onClick)="onLogin()">
+        </p-button>
     </form>
 </div>
