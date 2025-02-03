@@ -12,5 +12,4 @@ if (environment.isProduction) {
 
 bootstrapApplication(AppComponent, {
     providers: APP_PROVIDERS
-    // eslint-disable-next-line no-console
-}).catch((error) => console.log(error));
+}).catch((error) => console.error(error));
