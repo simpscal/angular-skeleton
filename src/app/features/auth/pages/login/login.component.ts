@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
@@ -21,9 +21,9 @@ const PRIMES = [ButtonModule, InputTextModule, MessageModule];
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent {
-    form = new FormGroup({
-        email: new FormControl('', [Validators.required, Validators.email]),
-        password: new FormControl('', [Validators.required, Validators.minLength(8)])
+    form = this._formBuilder.group({
+        email: ['', [Validators.required, Validators.email]],
+        password: ['', [Validators.required, Validators.minLength(8)]]
     });
 
     get isFormValid() {
@@ -32,6 +32,7 @@ export class LoginComponent {
 
     constructor(
         private _router: Router,
+        private _formBuilder: FormBuilder,
         private _authService: AuthService
     ) {}
 
