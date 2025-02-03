@@ -1,26 +1,26 @@
-import { DxButtonModule } from 'devextreme-angular';
 import { argsToTemplate, Meta, moduleMetadata } from '@storybook/angular';
-import { ButtonComponent } from '@widgets';
+import { Button, ButtonModule } from 'primeng/button';
 
-const meta: Meta<ButtonComponent> = {
-    title: 'System Design/Button',
-    component: ButtonComponent,
+const meta: Meta<Button> = {
+    component: Button,
     render: ({ ...args }) => ({
         props: args,
-        template: `<app-button ${argsToTemplate(args)}></app-button>`
+        template: `<p-button ${argsToTemplate(args)}></p-button>`
     }),
     decorators: [
         moduleMetadata({
-            imports: [DxButtonModule]
+            imports: [ButtonModule]
         })
     ],
     argTypes: {
-        type: { control: 'select', options: ['primary', 'secondary', 'danger', 'success', 'info', 'warning'] }
+        severity: {
+            control: 'select',
+            options: ['primary', 'secondary', 'danger', 'success', 'info', 'warning']
+        }
     },
     args: {
-        width: 'auto',
         disabled: false,
-        text: 'Click'
+        label: 'Click'
     }
 };
 
@@ -28,12 +28,12 @@ export default meta;
 
 export const Primary = {
     args: {
-        type: 'primary'
+        severity: 'primary'
     }
 };
 
 export const Secondary = {
     args: {
-        type: 'secondary'
+        severity: 'secondary'
     }
 };

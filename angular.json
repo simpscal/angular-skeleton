@@ -115,7 +115,7 @@
                         "compodoc": false,
                         "port": 6006,
                         "assets": ["src/assets/images/favicon.ico", "src/assets"],
-                        "styles": ["node_modules/devextreme/dist/css/dx.light.css", "src/styles/style.scss"],
+                        "styles": ["src/styles/style.scss"],
                         "stylePreprocessorOptions": {
                             "includePaths": ["src/styles"]
                         }
@@ -129,7 +129,7 @@
                         "compodoc": false,
                         "outputDir": "storybook-static",
                         "assets": ["src/assets/images/favicon.ico", "src/assets"],
-                        "styles": ["node_modules/devextreme/dist/css/dx.light.css", "src/styles/style.scss"],
+                        "styles": ["src/styles/style.scss"],
                         "stylePreprocessorOptions": {
                             "includePaths": ["src/styles"]
                         }
