@@ -18,7 +18,7 @@ const PRIMENG_PROVIDERS = [
                 }
             }),
             options: {
-                darkModeSelector: false
+                darkModeSelector: '[data-mode="dark"]'
             }
         }
     }),

@@ -1,10 +1,7 @@
 const SEMANTIC_PRESET = {
+    primary: {},
     colorScheme: {
-        light: {
-            surface: {
-                // 50: 'var(--color-surface-50)'
-            }
-        }
+        light: {}
     }
 };
 
