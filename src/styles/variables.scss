@@ -333,44 +333,44 @@
     --background-accent-gray-bolder-hovered: var(--neutral-800);
     --background-accent-gray-bolder-pressed: var(--neutral-900);
 
-    --ds-background-disabled: var(--neutral-100-A);
-    --ds-background-input: var(--neutral-0);
-    --ds-background-input-hovered: var(--neutral-100);
-    --ds-background-input-pressed: var(--neutral-0);
-    --ds-background-inverse-subtle: #00000029;
-    --ds-background-inverse-subtle-hovered: #0000003d;
-    --ds-background-inverse-subtle-pressed: #00000052;
-    --ds-background-neutral: var(--neutral-200-A);
-    --ds-background-neutral-hovered: var(--neutral-300-A);
-    --ds-background-neutral-pressed: var(--neutral-400-A);
+    --background-disabled: var(--neutral-100-A);
+    --background-input: var(--neutral-0);
+    --background-input-hovered: var(--neutral-100);
+    --background-input-pressed: var(--neutral-0);
+    --background-inverse-subtle: #00000029;
+    --background-inverse-subtle-hovered: #0000003d;
+    --background-inverse-subtle-pressed: #00000052;
+    --background-neutral: var(--neutral-200-A);
+    --background-neutral-hovered: var(--neutral-300-A);
+    --background-neutral-pressed: var(--neutral-400-A);
 
-    --ds-background-neutral-subtle: transparent;
-    --ds-background-neutral-subtle-hovered: var(--neutral-200-A);
-    --ds-background-neutral-subtle-pressed: var(--neutral-300-A);
+    --background-neutral-subtle: transparent;
+    --background-neutral-subtle-hovered: var(--neutral-200-A);
+    --background-neutral-subtle-pressed: var(--neutral-300-A);
 
-    --ds-background-neutral-bold: var(--neutral-800);
-    --ds-background-neutral-bold-hovered: var(--neutral-900);
-    --ds-background-neutral-bold-pressed: var(--neutral-1000);
+    --background-neutral-bold: var(--neutral-800);
+    --background-neutral-bold-hovered: var(--neutral-900);
+    --background-neutral-bold-pressed: var(--neutral-1000);
 
-    --ds-background-selected: var(--blue-100);
-    --ds-background-selected-hovered: var(--blue-200);
-    --ds-background-selected-pressed: var(--blue-300);
+    --background-selected: var(--blue-100);
+    --background-selected-hovered: var(--blue-200);
+    --background-selected-pressed: var(--blue-300);
 
-    --ds-background-selected-bold: var(--blue-700);
-    --ds-background-selected-bold-hovered: var(--blue-800);
-    --ds-background-selected-bold-pressed: var(--blue-900);
+    --background-selected-bold: var(--blue-700);
+    --background-selected-bold-hovered: var(--blue-800);
+    --background-selected-bold-pressed: var(--blue-900);
 
-    --ds-background-subtlest: var(--blue-100);
-    --ds-background-subtlest-hovered: var(--blue-200);
-    --ds-background-subtlest-pressed: var(--blue-300);
+    --background-subtlest: var(--blue-100);
+    --background-subtlest-hovered: var(--blue-200);
+    --background-subtlest-pressed: var(--blue-300);
 
-    --ds-background-bold: var(--blue-700);
-    --ds-background-bold-hovered: var(--blue-800);
-    --ds-background-bold-pressed: var(--blue-900);
+    --background-bold: var(--blue-700);
+    --background-bold-hovered: var(--blue-800);
+    --background-bold-pressed: var(--blue-900);
 
-    --ds-background-boldest: var(--blue-1000);
-    --ds-background-boldest-hovered: var(--blue-900);
-    --ds-background-boldest-pressed: var(--blue-800);
+    --background-boldest: var(--blue-1000);
+    --background-boldest-hovered: var(--blue-900);
+    --background-boldest-pressed: var(--blue-800);
 }
 
 :root[data-mode='dark'] {
