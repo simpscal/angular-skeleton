@@ -16,7 +16,7 @@
                 "outputPath": "dist/apps/app",
                 "index": "apps/app/src/index.html",
                 "polyfills": ["zone.js"],
-                "tsConfig": "apps/app/tsconfig.app.json",
+                "tsConfig": "apps/app/tsconfig.json",
                 "inlineStyleLanguage": "scss",
                 "assets": ["apps/app/src/assets/images/favicon.ico", "apps/app/src/assets"],
                 "styles": ["apps/app/src/styles/style.scss"],

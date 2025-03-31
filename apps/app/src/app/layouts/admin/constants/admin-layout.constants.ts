@@ -1,4 +1,4 @@
-import { PAGE_ROUTES } from '@app/shared/constants';
+import { PAGE_ROUTES } from '@shared/constants';
 
 import { MenuItemModel } from '../components/side-bar/models';
 

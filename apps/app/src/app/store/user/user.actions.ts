@@ -1,4 +1,4 @@
-import { UserViewModel } from '@app/shared/models';
+import { UserViewModel } from '@shared/models';
 
 export class SetUserAction {
     static readonly type = '[User] Set User';

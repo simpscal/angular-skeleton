@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 
-import { PAGE_ROUTES } from '@app/shared/constants';
+import { PAGE_ROUTES } from '@shared/constants';
 
 import { AuthService } from '@core/services';
 

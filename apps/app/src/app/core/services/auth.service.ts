@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { delay, firstValueFrom, of, tap } from 'rxjs';
 
-import { JwtTokenUtility, LocalStorageUtility } from '@app/shared/utilities';
+import { JwtTokenUtility, LocalStorageUtility } from '@shared/utilities';
 
-import { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } from '@app/shared/constants';
-import { AuthViewModel } from '@app/shared/models';
+import { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } from '@shared/constants';
+import { AuthViewModel } from '@shared/models';
 
 import { ApiService } from './api.service';
 

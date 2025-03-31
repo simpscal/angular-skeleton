@@ -6,7 +6,7 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { MessageModule } from 'primeng/message';
 
-import { AuthViewModel } from '@app/shared/models';
+import { AuthViewModel } from '@shared/models';
 
 import { AuthService } from '@core/services';
 

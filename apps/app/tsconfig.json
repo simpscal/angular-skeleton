@@ -2,14 +2,13 @@
     "extends": "../../tsconfig.base.json",
     "compilerOptions": {
         "outDir": "../../dist/out-tsc",
-        "types": [],
         "paths": {
-            "@app/features/": ["apps/app/src/app/features"],
-            "@app/features/*": ["apps/app/src/app/features/*"],
-            "@app/icons": ["apps/app/src/assets/icons"],
-            "@app/icons/*": ["apps/app/src/assets/icons/*"],
-            "@app/shared": ["apps/app/src/app/shared"],
-            "@app/shared/*": ["apps/app/src/app/shared/*"],
+            "@features/": ["apps/app/src/app/features"],
+            "@features/*": ["apps/app/src/app/features/*"],
+            "@icons": ["apps/app/src/assets/icons"],
+            "@icons/*": ["apps/app/src/assets/icons/*"],
+            "@shared": ["apps/app/src/app/shared"],
+            "@shared/*": ["apps/app/src/app/shared/*"],
             "@core": ["apps/app/src/app/core"],
             "@core/*": ["apps/app/src/app/core/*"],
             "@environment": ["apps/app/src/environments/environment.ts"],
@@ -30,6 +29,11 @@
         "strictInputAccessModifiers": true,
         "strictTemplates": true
     },
+    "references": [
+        {
+            "path": "./tsconfig.spec.json"
+        }
+    ],
     "files": ["src/main.ts"],
     "include": ["src/**/*.d.ts"]
 }

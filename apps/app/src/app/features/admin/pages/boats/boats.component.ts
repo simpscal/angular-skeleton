@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { BoatViewModel } from '@app/features/admin/models/boat';
+import { BoatViewModel } from '@features/admin/models/boat';
 import { DataViewModule } from 'primeng/dataview';
 
 import { BoatService } from '../../services';

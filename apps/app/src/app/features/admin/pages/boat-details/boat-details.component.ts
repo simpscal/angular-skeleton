@@ -6,7 +6,7 @@ import { finalize } from 'rxjs';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 
-import { PAGE_ROUTES } from '@app/shared/constants';
+import { PAGE_ROUTES } from '@shared/constants';
 
 import { BoatService } from '../../services';
 
