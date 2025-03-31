@@ -3,11 +3,9 @@ import { HttpHandler, HttpInterceptor, HttpRequest, HttpStatusCode } from '@angu
 import { Router } from '@angular/router';
 import { catchError, Observable, of, switchMap, throwError } from 'rxjs';
 
-import { LocalStorageUtility } from '@shared/utilities';
-
-import { ACCESS_TOKEN_KEY, AUTH_HEADER_KEY, AUTH_SCHEME_KEY, PAGE_ROUTES } from '@shared/constants';
-
 import { AuthService } from '@core/services';
+import { ACCESS_TOKEN_KEY, AUTH_HEADER_KEY, AUTH_SCHEME_KEY, PAGE_ROUTES } from '@shared/constants';
+import { LocalStorageUtility } from '@shared/utilities';
 
 @Injectable({ providedIn: 'root' })
 export class AuthInterceptor implements HttpInterceptor {

@@ -2,13 +2,12 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
+
+import { AuthService } from '@core/services';
+import { AuthViewModel } from '@shared/models';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { MessageModule } from 'primeng/message';
-
-import { AuthViewModel } from '@shared/models';
-
-import { AuthService } from '@core/services';
 
 const MODULES = [CommonModule, RouterModule, FormsModule, ReactiveFormsModule];
 const PRIMES = [ButtonModule, InputTextModule, MessageModule];

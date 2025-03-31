@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { BoatViewModel } from '@features/admin/models/boat';
-import { DataViewModule } from 'primeng/dataview';
 
 import { BoatService } from '../../services';
+import { BoatViewModel } from '@features/admin/models/boat';
+import { DataViewModule } from 'primeng/dataview';
 
 @Component({
     selector: 'app-admin-boats',

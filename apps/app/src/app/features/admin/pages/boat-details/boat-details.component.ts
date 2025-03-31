@@ -3,14 +3,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { finalize } from 'rxjs';
-import { ButtonModule } from 'primeng/button';
-import { InputTextModule } from 'primeng/inputtext';
-
-import { PAGE_ROUTES } from '@shared/constants';
-
-import { BoatService } from '../../services';
 
 import { BoatViewModel } from '../../models/boat';
+import { BoatService } from '../../services';
+import { PAGE_ROUTES } from '@shared/constants';
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
 
 const PRIMES = [ButtonModule, InputTextModule, FormsModule];
 

@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { delay, of } from 'rxjs';
 
-import { ApiService } from '@core/services';
-
 import { BoatViewModel } from '../models/boat';
+import { ApiService } from '@core/services';
 
 @Injectable()
 export class BoatService {

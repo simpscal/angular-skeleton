@@ -9,9 +9,7 @@
         "build-prod": "nx build --configuration production",
         "watch": "nx build --watch --configuration development",
         "test": "nx test",
-        "lint": "nx lint",
-        "prepare": "husky",
-        "pre-commit": "npx lint-staged",
+        "lint": "nx run-many --target=lint",
         "generate-icons": "svg-to-ts-constants",
         "json-server": "json-server --watch ./data/db.json --routes ./data/routes.json"
     },
@@ -55,10 +53,8 @@
         "@swc/helpers": "~0.5.11",
         "@types/jasmine": "~4.3.0",
         "@typescript-eslint/eslint-plugin": "^8.22.0",
-        "@typescript-eslint/parser": "^8.22.0",
         "autoprefixer": "^10.4.19",
         "eslint": "~8.57.0",
-        "eslint-plugin-prettier": "^5.1.3",
         "eslint-plugin-simple-import-sort": "^12.1.0",
         "globals": "^15.0.0",
         "husky": "^9.0.11",
@@ -89,13 +85,5 @@
         "fileName": "icons.constants",
         "additionalModelFile": "./src/assets/icons",
         "compileSources": true
-    },
-    "lint-staged": {
-        "*.{ts,html}": [
-            "eslint --max-warnings=0 --fix"
-        ],
-        "*": [
-            "prettier --ignore-unknown --write"
-        ]
     }
 }

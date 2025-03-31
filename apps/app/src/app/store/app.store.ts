@@ -1,7 +1,7 @@
 import { provideStore } from '@ngxs/store';
-import { environment } from '@environment';
 
 import { UserState } from './user/user.state';
+import { environment } from '@environment';
 
 const APP_STORE_PROVIDERS = [provideStore([UserState], { developmentMode: !environment.isProduction })];
 

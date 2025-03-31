@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { Listbox } from 'primeng/listbox';
-import { ScrollPanel } from 'primeng/scrollpanel';
 
 import { MenuItemModel } from './models';
+import { Listbox } from 'primeng/listbox';
+import { ScrollPanel } from 'primeng/scrollpanel';
 
 const PRIMES = [ScrollPanel, Listbox];
 

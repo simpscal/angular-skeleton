@@ -29,6 +29,9 @@
         },
         "@nx/eslint:lint": {
             "cache": true,
+            "options": {
+                "fix": true
+            },
             "inputs": [
                 "default",
                 "{workspaceRoot}/.eslintrc.json",

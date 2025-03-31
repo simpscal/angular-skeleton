@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 
-import { PAGE_ROUTES } from '@shared/constants';
-
 import { AuthService } from '@core/services';
+import { PAGE_ROUTES } from '@shared/constants';
 
 @Injectable({ providedIn: 'root' })
 export class GuestGuard implements CanActivate {

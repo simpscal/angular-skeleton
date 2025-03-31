@@ -1,6 +1,0 @@
-{
-    "extends": "tsconfig.json",
-    "include": ["src"],
-    "files": ["tailwind.config.js"],
-    "exclude": ["node_modules", "dist"]
-}

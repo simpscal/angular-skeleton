@@ -1,11 +1,10 @@
 // https://github.com/primefaces/primeng/tree/master/packages/themes/src/presets
+import BUTTON_PRESET from './components/button.present';
+import SEMANTIC_PRESET from './semantic.preset';
 import { definePreset } from '@primeng/themes';
 import Aura from '@primeng/themes/aura';
 import { MessageService } from 'primeng/api';
 import { providePrimeNG } from 'primeng/config';
-
-import BUTTON_PRESET from './components/button.present';
-import SEMANTIC_PRESET from './semantic.preset';
 
 const PRIMENG_PROVIDERS = [
     providePrimeNG({
