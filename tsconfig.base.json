@@ -21,33 +21,7 @@
         "strictPropertyInitialization": false,
         "strictNullChecks": false,
         "lib": ["ES2022", "dom"],
-        "paths": {
-            "@app/features/": ["src/app/features"],
-            "@app/features/*": ["src/app/features/*"],
-            "@app/icons": ["src/assets/icons"],
-            "@app/icons/*": ["src/assets/icons/*"],
-            "@app/shared": ["src/app/shared"],
-            "@app/shared/*": ["src/app/shared/*"],
-            "@core": ["src/app/core"],
-            "@core/*": ["src/app/core/*"],
-            "@environment": ["src/environments/environment.ts"],
-            "@environments/*": ["src/app/environments/*"],
-            "@layouts": ["src/app/layouts"],
-            "@layouts/*": ["src/app/layouts/*"],
-            "@pages": ["src/app/pages"],
-            "@pages/*": ["src/app/pages/*"],
-            "@store": ["src/app/store"],
-            "@store/*": ["src/app/store/*"],
-            "@ui": ["src/app/ui"],
-            "@ui/*": ["src/app/ui/*"]
-        },
         "rootDir": "."
-    },
-    "angularCompilerOptions": {
-        "enableI18nLegacyMessageIdFormat": false,
-        "strictInjectionParameters": true,
-        "strictInputAccessModifiers": true,
-        "strictTemplates": true
     },
     "exclude": ["node_modules", "tmp"]
 }

@@ -2,7 +2,33 @@
     "extends": "../../tsconfig.base.json",
     "compilerOptions": {
         "outDir": "../../dist/out-tsc",
-        "types": []
+        "types": [],
+        "paths": {
+            "@app/features/": ["apps/app/src/app/features"],
+            "@app/features/*": ["apps/app/src/app/features/*"],
+            "@app/icons": ["apps/app/src/assets/icons"],
+            "@app/icons/*": ["apps/app/src/assets/icons/*"],
+            "@app/shared": ["apps/app/src/app/shared"],
+            "@app/shared/*": ["apps/app/src/app/shared/*"],
+            "@core": ["apps/app/src/app/core"],
+            "@core/*": ["apps/app/src/app/core/*"],
+            "@environment": ["apps/app/src/environments/environment.ts"],
+            "@environments/*": ["apps/app/src/app/environments/*"],
+            "@layouts": ["apps/app/src/app/layouts"],
+            "@layouts/*": ["apps/app/src/app/layouts/*"],
+            "@pages": ["apps/app/src/app/pages"],
+            "@pages/*": ["apps/app/src/app/pages/*"],
+            "@store": ["apps/app/src/app/store"],
+            "@store/*": ["apps/app/src/app/store/*"],
+            "@ui": ["apps/app/src/app/ui"],
+            "@ui/*": ["apps/app/src/app/ui/*"]
+        }
+    },
+    "angularCompilerOptions": {
+        "enableI18nLegacyMessageIdFormat": false,
+        "strictInjectionParameters": true,
+        "strictInputAccessModifiers": true,
+        "strictTemplates": true
     },
     "files": ["src/main.ts"],
     "include": ["src/**/*.d.ts"]
