@@ -1,0 +1,106 @@
+{
+    "name": "app",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "projectType": "application",
+    "generators": {
+        "@schematics/angular:component": {
+            "style": "scss"
+        }
+    },
+    "sourceRoot": "apps/app/src",
+    "prefix": "app",
+    "targets": {
+        "build": {
+            "executor": "@angular-devkit/build-angular:application",
+            "options": {
+                "outputPath": "dist/apps/app",
+                "index": "apps/app/src/index.html",
+                "polyfills": ["zone.js"],
+                "tsConfig": "apps/app/tsconfig.app.json",
+                "inlineStyleLanguage": "scss",
+                "assets": ["apps/app/src/assets/images/favicon.ico", "apps/app/src/assets"],
+                "styles": ["apps/app/src/styles/style.scss"],
+                "stylePreprocessorOptions": {
+                    "includePaths": ["src/styles"]
+                },
+                "browser": "apps/app/src/main.ts"
+            },
+            "configurations": {
+                "production": {
+                    "budgets": [
+                        {
+                            "type": "initial",
+                            "maximumWarning": "4mb",
+                            "maximumError": "5mb"
+                        },
+                        {
+                            "type": "anyComponentStyle",
+                            "maximumWarning": "2kb",
+                            "maximumError": "4kb"
+                        }
+                    ],
+                    "baseHref": "/",
+                    "outputHashing": "all",
+                    "fileReplacements": [
+                        {
+                            "replace": "apps/app/src/environments/environment.ts",
+                            "with": "apps/app/src/environments/environment.prod.ts"
+                        }
+                    ]
+                },
+                "development": {
+                    "optimization": false,
+                    "extractLicenses": false,
+                    "sourceMap": false,
+                    "namedChunks": true,
+                    "fileReplacements": [
+                        {
+                            "replace": "apps/app/src/environments/environment.ts",
+                            "with": "apps/app/src/environments/environment.dev.ts"
+                        }
+                    ]
+                }
+            },
+            "defaultConfiguration": "production"
+        },
+        "serve": {
+            "executor": "@angular-devkit/build-angular:dev-server",
+            "configurations": {
+                "production": {
+                    "buildTarget": "app:build:production"
+                },
+                "development": {
+                    "buildTarget": "app:build:development"
+                }
+            },
+            "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+            "executor": "@angular-devkit/build-angular:extract-i18n",
+            "options": {
+                "buildTarget": "app:build"
+            }
+        },
+        "test": {
+            "executor": "@angular-devkit/build-angular:karma",
+            "options": {
+                "polyfills": ["zone.js", "zone.js/testing"],
+                "tsConfig": "apps/app/tsconfig.spec.json",
+                "inlineStyleLanguage": "scss",
+                "assets": ["apps/app/src/assets/images/favicon.ico", "apps/app/src/assets"],
+                "styles": ["apps/app/src/styles/style.scss"],
+                "stylePreprocessorOptions": {
+                    "includePaths": ["src/styles"]
+                },
+                "scripts": []
+            }
+        },
+        "lint": {
+            "executor": "@nx/eslint:lint",
+            "options": {
+                "lintFilePatterns": ["apps/app/**/*.ts", "apps/app/**/*.html"],
+                "hasTypeAwareRules": true
+            }
+        }
+    }
+}
