@@ -18,10 +18,21 @@
                 "polyfills": ["zone.js"],
                 "tsConfig": "apps/shell/tsconfig.json",
                 "inlineStyleLanguage": "scss",
-                "assets": ["apps/shell/src/assets/images/favicon.ico", "apps/shell/src/assets"],
-                "styles": ["apps/shell/src/styles/style.scss"],
+                "assets": [
+                    {
+                        "input": "libs/shared/assets/src/assets",
+                        "glob": "**/*",
+                        "output": "assets"
+                    },
+                    {
+                        "input": "libs/shared/assets/src/assets/images",
+                        "glob": "favicon.ico",
+                        "output": "."
+                    }
+                ],
+                "styles": ["libs/shared/styles/src/styles/style.scss"],
                 "stylePreprocessorOptions": {
-                    "includePaths": ["src/styles"]
+                    "includePaths": ["libs/shared/styles/src/styles"]
                 },
                 "browser": "apps/shell/src/main.ts"
             },
@@ -87,10 +98,16 @@
                 "polyfills": ["zone.js", "zone.js/testing"],
                 "tsConfig": "apps/shell/tsconfig.spec.json",
                 "inlineStyleLanguage": "scss",
-                "assets": ["apps/shell/src/assets/images/favicon.ico", "apps/shell/src/assets"],
-                "styles": ["apps/shell/src/styles/style.scss"],
+                "assets": [
+                    {
+                        "input": "libs/shared/assets/src/assets",
+                        "glob": "**/*",
+                        "output": "assets"
+                    }
+                ],
+                "styles": ["libs/shared/styles/src/styles/style.scss"],
                 "stylePreprocessorOptions": {
-                    "includePaths": ["src/styles"]
+                    "includePaths": ["libs/shared/styles/src/styles"]
                 },
                 "scripts": []
             }

@@ -16,12 +16,14 @@
         "moduleResolution": "node",
         "importHelpers": true,
         "target": "ES2022",
-        "module": "ES2022",
+        "module": "ESNext",
         "useDefineForClassFields": false,
         "strictPropertyInitialization": false,
         "strictNullChecks": false,
+        "skipLibCheck": true,
         "lib": ["ES2022", "dom"],
-        "rootDir": "."
+        "rootDir": ".",
+        "paths": {}
     },
     "exclude": ["node_modules", "tmp"]
 }
