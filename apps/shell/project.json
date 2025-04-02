@@ -11,10 +11,12 @@
     },
     "targets": {
         "build": {
-            "executor": "@angular-devkit/build-angular:application",
+            "executor": "@nx/angular:webpack-browser",
+            "outputs": ["{options.outputPath}"],
             "options": {
                 "outputPath": "dist/apps/shell",
                 "index": "apps/shell/src/index.html",
+                "main": "apps/shell/src/main.ts",
                 "polyfills": ["zone.js"],
                 "tsConfig": "apps/shell/tsconfig.json",
                 "inlineStyleLanguage": "scss",
@@ -34,7 +36,9 @@
                 "stylePreprocessorOptions": {
                     "includePaths": ["libs/shared/styles/src/styles"]
                 },
-                "browser": "apps/shell/src/main.ts"
+                "customWebpackConfig": {
+                    "path": "apps/shell/webpack.config.ts"
+                }
             },
             "configurations": {
                 "production": {
@@ -57,7 +61,10 @@
                             "replace": "apps/shell/src/environments/environment.ts",
                             "with": "apps/shell/src/environments/environment.prod.ts"
                         }
-                    ]
+                    ],
+                    "customWebpackConfig": {
+                        "path": "apps/shell/webpack.prod.config.ts"
+                    }
                 },
                 "development": {
                     "optimization": false,
@@ -75,7 +82,11 @@
             "defaultConfiguration": "production"
         },
         "serve": {
-            "executor": "@angular-devkit/build-angular:dev-server",
+            "executor": "@nx/angular:module-federation-dev-server",
+            "options": {
+                "port": 4200,
+                "publicHost": "http://localhost:4200"
+            },
             "configurations": {
                 "production": {
                     "buildTarget": "shell:build:production"
@@ -109,6 +120,9 @@
                 "stylePreprocessorOptions": {
                     "includePaths": ["libs/shared/styles/src/styles"]
                 },
+                "customWebpackConfig": {
+                    "path": "apps/shell/webpack.config.ts"
+                },
                 "scripts": []
             }
         },
@@ -117,6 +131,14 @@
             "options": {
                 "lintFilePatterns": ["apps/shell/**/*.ts", "apps/shell/**/*.html"],
                 "hasTypeAwareRules": true
+            }
+        },
+        "serve-static": {
+            "executor": "@nx/web:file-server",
+            "options": {
+                "buildTarget": "test:build",
+                "port": 4200,
+                "spa": true
             }
         }
     }
