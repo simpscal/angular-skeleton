@@ -5,8 +5,8 @@ import { provideRouter } from '@angular/router';
 
 import PRIMENG_PROVIDERS from './@primeng/primeng.providers';
 import ROUTES from './app.routes';
-import { AuthInterceptor } from '@core/interceptors';
-import APP_STORE_PROVIDERS from '@store/app.store';
+import { AuthInterceptor } from '@shell/core/interceptors';
+import APP_STORE_PROVIDERS from '@shell/store/app.store';
 
 export const APP_PROVIDERS: (Provider | EnvironmentProviders)[] = [
     provideHttpClient(),

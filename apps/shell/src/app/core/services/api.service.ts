@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpStatusCode } from '@angular/common/http';
 import { catchError, Observable, throwError } from 'rxjs';
 
-import { environment } from '@environment';
 import { MessageService } from 'primeng/api';
+import { environment } from 'apps/shell/src/environments/environment';
 
 @Injectable({
     providedIn: 'root'

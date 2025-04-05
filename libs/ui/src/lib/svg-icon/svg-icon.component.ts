@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, ElementRef, HostBinding, Input, OnI
 import { CommonModule } from '@angular/common';
 
 @Component({
-    selector: 'app-svg-icon',
+    selector: 'ui-svg-icon',
     imports: [CommonModule],
     template: ` <ng-content></ng-content>`,
     changeDetection: ChangeDetectionStrategy.OnPush

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { BoatService } from '../../services';
-import { BoatViewModel } from '@features/admin/models/boat';
+import { BoatViewModel } from '@shell/features/admin/models/boat';
 import { DataViewModule } from 'primeng/dataview';
 
 @Component({

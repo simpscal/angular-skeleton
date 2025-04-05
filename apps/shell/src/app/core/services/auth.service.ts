@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { delay, firstValueFrom, of, tap } from 'rxjs';
 
 import { ApiService } from './api.service';
-import { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } from '@shared/constants';
-import { AuthViewModel } from '@shared/models';
-import { JwtTokenUtility, LocalStorageUtility } from '@shared/utilities';
+import { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } from '@shell/shared/constants';
+import { AuthViewModel } from '@shell/shared/models';
+import { JwtTokenUtility, LocalStorageUtility } from '@shell/shared/utilities';
 
 const EXAMPLE_TOKEN =
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxMTEwMzg5OTk5OX0.0FAYr7bWrVXQb1MqATfNMjE8B3djQ61nfAtHaBOzL-c';

@@ -1,5 +1,5 @@
 import { MenuItemModel } from '../components/side-bar/models';
-import { PAGE_ROUTES } from '@shared/constants';
+import { PAGE_ROUTES } from '@shell/shared/constants';
 
 export const MENU_ITEMS: MenuItemModel[] = [
     {

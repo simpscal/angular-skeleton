@@ -1,18 +1,7 @@
 {
     "extends": "../../tsconfig.base.json",
     "compilerOptions": {
-        "outDir": "../../dist/out-tsc",
-        "paths": {
-            "@features/*": ["apps/shell/src/app/features/*"],
-            "@icons/*": ["apps/shell/src/assets/icons/*"],
-            "@shared/*": ["apps/shell/src/app/shared/*"],
-            "@core/*": ["apps/shell/src/app/core/*"],
-            "@environment": ["apps/shell/src/environments/environment.ts"],
-            "@layouts/*": ["apps/shell/src/app/layouts/*"],
-            "@pages/*": ["apps/shell/src/app/pages/*"],
-            "@store/*": ["apps/shell/src/app/store/*"],
-            "@ui/*": ["apps/shell/src/app/ui/*"]
-        }
+        "outDir": "../../dist/out-tsc"
     },
     "angularCompilerOptions": {
         "enableI18nLegacyMessageIdFormat": false,
