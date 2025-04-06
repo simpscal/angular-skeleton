@@ -4,7 +4,7 @@
     "sourceRoot": "libs/pipes/src",
     "prefix": "lib",
     "projectType": "library",
-    "tags": ["scoped:shared", "type:pipe"],
+    "tags": ["scope:shared", "type:pipe"],
     "targets": {
         "lint": {
             "executor": "@nx/eslint:lint"

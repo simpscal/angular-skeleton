@@ -26,7 +26,7 @@
         "paths": {
             "@libs/directives": ["libs/directives/src/index.ts"],
             "@libs/guards": ["libs/guards/src/index.ts"],
-            "@libs/pipe": ["libs/pipe/src/index.ts"],
+            "@libs/pipes": ["libs/pipes/src/index.ts"],
             "@libs/services": ["libs/services/src/index.ts"],
             "@libs/shared/models": ["libs/shared/src/lib/models/index.ts"],
             "@libs/shared/constants": ["libs/shared/src/lib/constants/index.ts"],

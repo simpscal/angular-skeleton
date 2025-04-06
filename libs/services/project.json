@@ -4,7 +4,7 @@
     "sourceRoot": "libs/services/src",
     "prefix": "lib",
     "projectType": "library",
-    "tags": ["scoped:shared", "type:service"],
+    "tags": ["scope:shared", "type:service"],
     "targets": {
         "lint": {
             "executor": "@nx/eslint:lint"
