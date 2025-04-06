@@ -2,7 +2,7 @@ import { Directive, ElementRef, HostBinding, NgZone, OnDestroy, OnInit } from '@
 import { fromEvent, Subscription } from 'rxjs';
 
 @Directive({
-    selector: '[appCustomScrollbar]',
+    selector: '[libCustomScrollbar]',
     standalone: true
 })
 export class CustomScrollbarDirective implements OnInit, OnDestroy {

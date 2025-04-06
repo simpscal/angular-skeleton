@@ -25,7 +25,11 @@
         "rootDir": ".",
         "paths": {
             "@shell/*": ["apps/shell/src/app/*"],
-            "@libs/ui": ["libs/ui/src/index.ts"]
+            "@libs/ui": ["libs/ui/src/index.ts"],
+            "@libs/directives": ["libs/directives/src/index.ts"],
+            "@libs/guards": ["libs/guards/src/index.ts"],
+            "@libs/pipe": ["libs/pipe/src/index.ts"],
+            "@libs/services": ["libs/services/src/index.ts"]
         }
     },
     "exclude": ["node_modules", "tmp"]

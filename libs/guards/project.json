@@ -1,0 +1,13 @@
+{
+    "name": "guards",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "libs/guards/src",
+    "prefix": "lib",
+    "projectType": "library",
+    "tags": ["scoped:shared", "type:guard"],
+    "targets": {
+        "lint": {
+            "executor": "@nx/eslint:lint"
+        }
+    }
+}

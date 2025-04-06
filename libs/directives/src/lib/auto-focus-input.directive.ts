@@ -1,7 +1,7 @@
 import { AfterViewInit, Directive, ElementRef, Input } from '@angular/core';
 
 @Directive({
-    selector: '[appAutoFocusInput]',
+    selector: '[libAutoFocusInput]',
     standalone: true
 })
 export class AutoFocusInputDirective implements AfterViewInit {

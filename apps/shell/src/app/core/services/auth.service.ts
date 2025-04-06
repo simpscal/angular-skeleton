@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { delay, firstValueFrom, of, tap } from 'rxjs';
 
-import { ApiService } from './api.service';
+import { ApiService } from '@libs/services';
 import { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } from '@shell/shared/constants';
 import { AuthViewModel } from '@shell/shared/models';
 import { JwtTokenUtility, LocalStorageUtility } from '@shell/shared/utilities';

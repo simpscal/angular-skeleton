@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-    name: 'appNullValue',
+    name: 'libNullValue',
     standalone: true
 })
 export class NullValuePipe implements PipeTransform {

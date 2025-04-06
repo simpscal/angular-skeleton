@@ -1,0 +1,13 @@
+{
+    "name": "pipes",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "libs/pipes/src",
+    "prefix": "lib",
+    "projectType": "library",
+    "tags": ["scoped:shared", "type:pipe"],
+    "targets": {
+        "lint": {
+            "executor": "@nx/eslint:lint"
+        }
+    }
+}
