@@ -9,7 +9,7 @@
         "build-prod": "nx build --configuration production",
         "watch": "nx build --watch --configuration development",
         "test": "nx test",
-        "lint": "nx run-many --target=lint",
+        "lint": "nx run-many --target=lint --fix",
         "generate-icons": "svg-to-ts-constants",
         "json-server": "json-server --watch ./data/db.json --routes ./data/routes.json"
     },
