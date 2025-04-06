@@ -24,12 +24,16 @@
         "lib": ["ES2022", "dom"],
         "rootDir": ".",
         "paths": {
-            "@shell/*": ["apps/shell/src/app/*"],
-            "@libs/ui": ["libs/ui/src/index.ts"],
             "@libs/directives": ["libs/directives/src/index.ts"],
             "@libs/guards": ["libs/guards/src/index.ts"],
             "@libs/pipe": ["libs/pipe/src/index.ts"],
-            "@libs/services": ["libs/services/src/index.ts"]
+            "@libs/services": ["libs/services/src/index.ts"],
+            "@libs/shared/models": ["libs/shared/src/lib/models/index.ts"],
+            "@libs/shared/constants": ["libs/shared/src/lib/constants/index.ts"],
+            "@libs/shared/enums": ["libs/shared/src/lib/enums/index.ts"],
+            "@libs/shared/utils": ["libs/shared/src/lib/utilities/index.ts"],
+            "@libs/ui": ["libs/ui/src/index.ts"],
+            "@shell/*": ["apps/shell/src/app/*"]
         }
     },
     "exclude": ["node_modules", "tmp"]

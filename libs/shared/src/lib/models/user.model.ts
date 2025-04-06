@@ -1,4 +1,4 @@
-import { EntityModel } from '..';
+import { EntityModel } from './entity.model';
 
 class UserBaseModel extends EntityModel {
     name: string;

@@ -54,6 +54,11 @@
                     "env": "NX_MF_DEV_REMOTES"
                 }
             ]
+        },
+        "@nx/js:tsc": {
+            "cache": true,
+            "dependsOn": ["^build"],
+            "inputs": ["production", "^production"]
         }
     },
     "generators": {
@@ -70,5 +75,13 @@
         "@nx/angular:component": {
             "style": "css"
         }
-    }
+    },
+    "plugins": [
+        {
+            "plugin": "@nx/eslint/plugin",
+            "options": {
+                "targetName": "eslint:lint"
+            }
+        }
+    ]
 }
