@@ -23,19 +23,19 @@
                 "inlineStyleLanguage": "scss",
                 "assets": [
                     {
-                        "input": "libs/shared/assets/src/assets",
+                        "input": "libs/assets/src/assets",
                         "glob": "**/*",
                         "output": "assets"
                     },
                     {
-                        "input": "libs/shared/assets/src/assets/images",
+                        "input": "libs/assets/src/assets/images",
                         "glob": "favicon.ico",
                         "output": "."
                     }
                 ],
-                "styles": ["libs/shared/styles/src/styles/style.scss"],
+                "styles": ["libs/styles/src/styles/style.scss"],
                 "stylePreprocessorOptions": {
-                    "includePaths": ["libs/shared/styles/src/styles"]
+                    "includePaths": ["libs/styles/src/styles"]
                 },
                 "customWebpackConfig": {
                     "path": "apps/shell/webpack.config.ts"
@@ -112,14 +112,14 @@
                 "inlineStyleLanguage": "scss",
                 "assets": [
                     {
-                        "input": "libs/shared/assets/src/assets",
+                        "input": "libs/assets/src/assets",
                         "glob": "**/*",
                         "output": "assets"
                     }
                 ],
-                "styles": ["libs/shared/styles/src/styles/style.scss"],
+                "styles": ["libs/styles/src/styles/style.scss"],
                 "stylePreprocessorOptions": {
-                    "includePaths": ["libs/shared/styles/src/styles"]
+                    "includePaths": ["libs/styles/src/styles"]
                 },
                 "customWebpackConfig": {
                     "path": "apps/shell/webpack.config.ts"
