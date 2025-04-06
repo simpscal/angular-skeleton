@@ -14,6 +14,13 @@ const config: ModuleFederationConfig = {
      * declare module 'my-external-remote';
      *
      */
+    additionalShared: [
+        ['@angular/common', { singleton: true, strictVersion: true }],
+        ['@angular/core', { singleton: true, strictVersion: true }],
+        ['@angular/router', { singleton: true, strictVersion: true }],
+        ['@angular/common/http', { singleton: true, strictVersion: true }],
+        ['primeng/api', { singleton: true, strictVersion: true }]
+    ],
     remotes: []
 };
 
