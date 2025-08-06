@@ -1,3 +1,3 @@
-export * from './keys.constants';
-export * from './page-routes.constants';
-export * from './regex-patterns.constants';
+export * from './keys.constant';
+export * from './page-routes.constant';
+export * from './regex-patterns.constant';

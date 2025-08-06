@@ -1,1 +1,1 @@
-export * from './admin-layout.constants';
+export * from './admin-layout.constant';

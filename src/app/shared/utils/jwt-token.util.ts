@@ -1,6 +1,6 @@
 import { jwtDecode } from 'jwt-decode';
 
-export class JwtTokenUtility {
+export class JwtTokenUtil {
     static isTokenExpired(token: string) {
         try {
             const decodedToken = jwtDecode(token);

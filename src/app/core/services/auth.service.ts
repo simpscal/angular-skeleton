@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } from '@app/shared/constants';
 import { AuthViewModel } from '@app/shared/models';
-import { JwtTokenUtility, LocalStorageUtility } from '@app/shared/utilities';
+import { JwtTokenUtil } from '@app/shared/utils';
 import { delay, firstValueFrom, of, tap } from 'rxjs';
 
 import { ApiService } from './api.service';
@@ -16,11 +16,11 @@ export class AuthService {
     private _apiService = inject(ApiService);
 
     async isLoggedIn() {
-        const token = LocalStorageUtility.getSecretData(ACCESS_TOKEN_KEY);
-        const refreshToken = LocalStorageUtility.getSecretData(REFRESH_TOKEN_KEY);
+        const token = localStorage.getItem(ACCESS_TOKEN_KEY);
+        const refreshToken = localStorage.getItem(REFRESH_TOKEN_KEY);
 
-        const isTokenExpired = JwtTokenUtility.isTokenExpired(token);
-        const isRefreshTokenExpired = JwtTokenUtility.isTokenExpired(refreshToken);
+        const isTokenExpired = JwtTokenUtil.isTokenExpired(token);
+        const isRefreshTokenExpired = JwtTokenUtil.isTokenExpired(refreshToken);
 
         if (isTokenExpired) {
             if (isRefreshTokenExpired) {
@@ -36,7 +36,7 @@ export class AuthService {
     getAccessToken(refreshToken: string) {
         return of(refreshToken).pipe(
             tap((accessToken) => {
-                LocalStorageUtility.storeSecretData(ACCESS_TOKEN_KEY, accessToken);
+                localStorage.setItem(ACCESS_TOKEN_KEY, accessToken);
             })
         );
     }
@@ -45,8 +45,8 @@ export class AuthService {
         return this._apiService.post('auth', auth.toRequest()).pipe(
             delay(1000),
             tap(() => {
-                LocalStorageUtility.storeSecretData(ACCESS_TOKEN_KEY, EXAMPLE_TOKEN);
-                LocalStorageUtility.storeSecretData(REFRESH_TOKEN_KEY, EXAMPLE_TOKEN);
+                localStorage.setItem(ACCESS_TOKEN_KEY, EXAMPLE_TOKEN);
+                localStorage.setItem(REFRESH_TOKEN_KEY, EXAMPLE_TOKEN);
             })
         );
     }

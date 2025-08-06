@@ -2,7 +2,6 @@ import { HttpHandler, HttpInterceptor, HttpRequest, HttpStatusCode } from '@angu
 import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { ACCESS_TOKEN_KEY, AUTH_HEADER_KEY, AUTH_SCHEME_KEY, PAGE_ROUTES } from '@app/shared/constants';
-import { LocalStorageUtility } from '@app/shared/utilities';
 import { AuthService } from '@core/services';
 import { catchError, Observable, of, switchMap, throwError } from 'rxjs';
 
@@ -42,10 +41,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
     private _setAuthHeader(req: HttpRequest<any>) {
         return req.clone({
-            headers: req.headers.set(
-                AUTH_HEADER_KEY,
-                `${AUTH_SCHEME_KEY} ${LocalStorageUtility.getSecretData(ACCESS_TOKEN_KEY)}`
-            )
+            headers: req.headers.set(AUTH_HEADER_KEY, `${AUTH_SCHEME_KEY} ${localStorage.getItem(ACCESS_TOKEN_KEY)}`)
         });
     }
 }

@@ -1,1 +1,1 @@
-export * from './date.enums';
+export * from './date.enum';
