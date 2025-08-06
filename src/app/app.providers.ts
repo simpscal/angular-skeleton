@@ -1,9 +1,8 @@
-import { EnvironmentProviders, Provider } from '@angular/core';
 import { HTTP_INTERCEPTORS, provideHttpClient } from '@angular/common/http';
+import { EnvironmentProviders, Provider } from '@angular/core';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideRouter } from '@angular/router';
 import { AuthInterceptor } from '@core/interceptors';
-
 import APP_STORE_PROVIDERS from '@store/app.store';
 
 import PRIMENG_PROVIDERS from './@primeng/primeng.providers';

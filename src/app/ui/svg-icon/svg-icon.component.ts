@@ -1,5 +1,14 @@
-import { ChangeDetectionStrategy, Component, ElementRef, HostBinding, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {
+    ChangeDetectionStrategy,
+    Component,
+    computed,
+    effect,
+    ElementRef,
+    HostBinding,
+    inject,
+    input
+} from '@angular/core';
 
 @Component({
     selector: 'app-svg-icon',
@@ -7,28 +16,35 @@ import { CommonModule } from '@angular/common';
     template: ` <ng-content></ng-content>`,
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SvgIconComponent implements OnInit {
+export class SvgIconComponent {
+    private _elementRef = inject(ElementRef);
+
+    data = input<string>('');
+    width = input<string>('5rem');
+    color = input<string>('');
+
     @HostBinding('style.display') displayStyle = 'block';
-    @HostBinding('style.width') widthStyle = '';
-    @HostBinding('style.color') colorStyle = '';
+    @HostBinding('style.width') widthStyle = computed(() => this.width());
+    @HostBinding('style.color') colorStyle = computed(() => this.color());
 
-    @Input() data = '';
-    @Input() width = '5rem';
-    @Input() color = '';
-
-    constructor(private _elementRef: ElementRef) {}
-
-    ngOnInit() {
-        this.widthStyle = this.width;
-        this.colorStyle = this.color;
-
-        this.generateIcon();
+    constructor() {
+        effect(() => {
+            if (this.data()) {
+                this.generateIcon();
+            }
+        });
     }
 
-    generateIcon() {
-        const div = document.createElement('div');
-        div.innerHTML = this.data ?? '';
+    private generateIcon() {
+        const element = this._elementRef.nativeElement;
+        element.innerHTML = '';
 
-        this._elementRef.nativeElement.appendChild(div.querySelector('svg'));
+        const div = document.createElement('div');
+        div.innerHTML = this.data();
+
+        const svg = div.querySelector('svg');
+        if (svg) {
+            element.appendChild(svg);
+        }
     }
 }

@@ -1,5 +1,5 @@
-import { provideStore } from '@ngxs/store';
 import { environment } from '@environment';
+import { provideStore } from '@ngxs/store';
 
 import { UserState } from './user/user.state';
 

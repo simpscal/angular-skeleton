@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostBinding, NgZone, OnDestroy, OnInit } from '@angular/core';
+import { Directive, ElementRef, HostBinding, inject, NgZone, OnDestroy, OnInit } from '@angular/core';
 import { fromEvent, Subscription } from 'rxjs';
 
 @Directive({
@@ -6,12 +6,10 @@ import { fromEvent, Subscription } from 'rxjs';
     standalone: true
 })
 export class CustomScrollbarDirective implements OnInit, OnDestroy {
-    @HostBinding('class.custom-scroll') customScroll = true;
+    private _element = inject(ElementRef);
+    private _ngZone = inject(NgZone);
 
-    constructor(
-        private _element: ElementRef,
-        private _ngZone: NgZone
-    ) {}
+    @HostBinding('class.custom-scroll') customScroll = true;
 
     SCROLLBAR_WIDTH = 11;
 

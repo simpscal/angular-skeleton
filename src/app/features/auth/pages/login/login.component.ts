@@ -1,14 +1,12 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
+import { AuthViewModel } from '@app/shared/models';
+import { AuthService } from '@core/services';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { MessageModule } from 'primeng/message';
-
-import { AuthViewModel } from '@app/shared/models';
-
-import { AuthService } from '@core/services';
 
 const MODULES = [CommonModule, RouterModule, FormsModule, ReactiveFormsModule];
 const PRIMES = [ButtonModule, InputTextModule, MessageModule];
@@ -21,6 +19,10 @@ const PRIMES = [ButtonModule, InputTextModule, MessageModule];
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent {
+    private _router = inject(Router);
+    private _formBuilder = inject(FormBuilder);
+    private _authService = inject(AuthService);
+
     form = this._formBuilder.group({
         email: ['', [Validators.required, Validators.email]],
         password: ['', [Validators.required, Validators.minLength(8)]]
@@ -29,12 +31,6 @@ export class LoginComponent {
     get isFormValid() {
         return this.form.status === 'VALID';
     }
-
-    constructor(
-        private _router: Router,
-        private _formBuilder: FormBuilder,
-        private _authService: AuthService
-    ) {}
 
     onLogin() {
         this._authService.login(new AuthViewModel(this.form.value)).subscribe(() => {

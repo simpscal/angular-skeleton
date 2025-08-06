@@ -1,16 +1,14 @@
-import { ChangeDetectionStrategy, Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { finalize } from 'rxjs';
+import { PAGE_ROUTES } from '@app/shared/constants';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
-
-import { PAGE_ROUTES } from '@app/shared/constants';
-
-import { BoatService } from '../../services';
+import { finalize } from 'rxjs';
 
 import { BoatViewModel } from '../../models/boat';
+import { BoatService } from '../../services';
 
 const PRIMES = [ButtonModule, InputTextModule, FormsModule];
 
@@ -22,7 +20,11 @@ const PRIMES = [ButtonModule, InputTextModule, FormsModule];
     styleUrl: './boat-details.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BoatDetailsComponent implements OnInit {
+export class BoatDetailsComponent {
+    private _router = inject(Router);
+    private _activatedRouter = inject(ActivatedRoute);
+    private _boatService = inject(BoatService);
+
     ID = this._activatedRouter.snapshot.params['id'];
 
     isLoading = signal(false);
@@ -30,13 +32,7 @@ export class BoatDetailsComponent implements OnInit {
 
     boat = signal(new BoatViewModel());
 
-    constructor(
-        private _router: Router,
-        private _activatedRouter: ActivatedRoute,
-        private _boatService: BoatService
-    ) {}
-
-    ngOnInit() {
+    constructor() {
         this.getBoatDetails();
     }
 

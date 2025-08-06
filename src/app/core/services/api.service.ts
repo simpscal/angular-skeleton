@@ -1,17 +1,15 @@
-import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpStatusCode } from '@angular/common/http';
-import { catchError, Observable, throwError } from 'rxjs';
+import { inject, Injectable } from '@angular/core';
 import { environment } from '@environment';
 import { MessageService } from 'primeng/api';
+import { catchError, Observable, throwError } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
 })
 export class ApiService {
-    constructor(
-        private _httpClient: HttpClient,
-        private _messageService: MessageService
-    ) {}
+    private _httpClient = inject(HttpClient);
+    private _messageService = inject(MessageService);
 
     get headers() {
         return new HttpHeaders({

@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { BoatViewModel } from '@app/features/admin/models/boat';
 import { DataViewModule } from 'primeng/dataview';
@@ -14,12 +14,12 @@ import { BoatService } from '../../services';
     styleUrl: './boats.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BoatsComponent implements OnInit {
+export class BoatsComponent {
+    private _boatService = inject(BoatService);
+
     boats = signal<BoatViewModel[]>([]);
 
-    constructor(private _boatService: BoatService) {}
-
-    ngOnInit() {
+    constructor() {
         this.loadBoats();
     }
 

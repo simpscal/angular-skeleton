@@ -1,13 +1,12 @@
-import { Injectable } from '@angular/core';
-import { delay, of } from 'rxjs';
-
+import { inject, Injectable } from '@angular/core';
 import { ApiService } from '@core/services';
+import { delay, of } from 'rxjs';
 
 import { BoatViewModel } from '../models/boat';
 
 @Injectable()
 export class BoatService {
-    constructor(private _apiService: ApiService) {}
+    private _apiService = inject(ApiService);
 
     getBoats() {
         return this._apiService.get<BoatViewModel[]>('boats').pipe(delay(1000));

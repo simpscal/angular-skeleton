@@ -1,10 +1,9 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { MENU_ITEMS } from './constants';
-
 import { HeaderComponent, SideBarComponent } from './components';
+import { MENU_ITEMS } from './constants';
 
 const COMPONENTS = [HeaderComponent, SideBarComponent];
 

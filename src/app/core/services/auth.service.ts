@@ -1,10 +1,8 @@
-import { Injectable } from '@angular/core';
-import { delay, firstValueFrom, of, tap } from 'rxjs';
-
-import { JwtTokenUtility, LocalStorageUtility } from '@app/shared/utilities';
-
+import { inject, Injectable } from '@angular/core';
 import { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } from '@app/shared/constants';
 import { AuthViewModel } from '@app/shared/models';
+import { JwtTokenUtility, LocalStorageUtility } from '@app/shared/utilities';
+import { delay, firstValueFrom, of, tap } from 'rxjs';
 
 import { ApiService } from './api.service';
 
@@ -15,7 +13,7 @@ const EXAMPLE_TOKEN =
     providedIn: 'root'
 })
 export class AuthService {
-    constructor(private _apiService: ApiService) {}
+    private _apiService = inject(ApiService);
 
     async isLoggedIn() {
         const token = LocalStorageUtility.getSecretData(ACCESS_TOKEN_KEY);

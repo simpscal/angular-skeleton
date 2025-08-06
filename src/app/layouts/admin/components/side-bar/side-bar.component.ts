@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Listbox } from 'primeng/listbox';
 import { ScrollPanel } from 'primeng/scrollpanel';
@@ -16,5 +16,5 @@ const PRIMES = [ScrollPanel, Listbox];
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SideBarComponent {
-    @Input() menuItems: MenuItemModel[] = [];
+    menuItems = input<MenuItemModel[]>([]);
 }

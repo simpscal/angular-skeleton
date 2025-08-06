@@ -1,20 +1,15 @@
-import { Injectable } from '@angular/core';
 import { HttpHandler, HttpInterceptor, HttpRequest, HttpStatusCode } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { catchError, Observable, of, switchMap, throwError } from 'rxjs';
-
-import { LocalStorageUtility } from '@app/shared/utilities';
-
 import { ACCESS_TOKEN_KEY, AUTH_HEADER_KEY, AUTH_SCHEME_KEY, PAGE_ROUTES } from '@app/shared/constants';
-
+import { LocalStorageUtility } from '@app/shared/utilities';
 import { AuthService } from '@core/services';
+import { catchError, Observable, of, switchMap, throwError } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class AuthInterceptor implements HttpInterceptor {
-    constructor(
-        private _router: Router,
-        private _authService: AuthService
-    ) {}
+    private _router = inject(Router);
+    private _authService = inject(AuthService);
 
     intercept(req: HttpRequest<any>, next: HttpHandler) {
         req = this._setAuthHeader(req);

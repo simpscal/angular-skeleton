@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Action, State, StateContext } from '@ngxs/store';
-
-import { AppStateEnum } from '@store/app-state.enums';
 import { UserViewModel } from '@app/shared/models';
+import { Action, State, StateContext } from '@ngxs/store';
+import { AppStateEnum } from '@store/app-state.enums';
 
 import { SetUserAction } from './user.actions';
 
