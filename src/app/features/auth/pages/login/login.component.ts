@@ -4,6 +4,7 @@ import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angu
 import { Router, RouterModule } from '@angular/router';
 import { AuthViewModel } from '@app/shared/models';
 import { AuthService } from '@core/services';
+import { TokenStorageService } from '@core/services';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { MessageModule } from 'primeng/message';
@@ -22,6 +23,7 @@ export class LoginComponent {
     private _router = inject(Router);
     private _formBuilder = inject(FormBuilder);
     private _authService = inject(AuthService);
+    private _tokenStorageService = inject(TokenStorageService);
 
     form = this._formBuilder.group({
         email: ['', [Validators.required, Validators.email]],
@@ -35,6 +37,8 @@ export class LoginComponent {
     onLogin() {
         this._authService.login(new AuthViewModel(this.form.value)).subscribe(() => {
             this._router.navigate(['/']).then();
+
+            this._tokenStorageService.setTokens('access', 'refresh');
         });
     }
 }

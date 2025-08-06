@@ -1,15 +1,15 @@
 import { inject, Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { PAGE_ROUTES } from '@app/shared/constants';
-import { AuthService } from '@core/services';
+import { TokenStorageService } from '@core/services';
 
 @Injectable({ providedIn: 'root' })
 export class AuthGuard implements CanActivate {
     private _router = inject(Router);
-    private _authService = inject(AuthService);
+    private _tokenStorageService = inject(TokenStorageService);
 
-    async canActivate() {
-        const isLoggedIn = await this._authService.isLoggedIn();
+    canActivate() {
+        const isLoggedIn = this._tokenStorageService.isLoggedIn();
 
         if (!isLoggedIn) {
             this._router.navigate([PAGE_ROUTES.AUTH_LOGIN]);

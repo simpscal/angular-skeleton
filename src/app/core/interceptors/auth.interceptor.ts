@@ -1,16 +1,18 @@
 import { HttpInterceptorFn, HttpStatusCode } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { ACCESS_TOKEN_KEY, AUTH_HEADER_KEY, AUTH_SCHEME_KEY, PAGE_ROUTES } from '@app/shared/constants';
+import { AUTH_HEADER_KEY, AUTH_SCHEME_KEY, PAGE_ROUTES } from '@app/shared/constants';
 import { AuthService } from '@core/services';
-import { catchError, from, switchMap, throwError } from 'rxjs';
+import { TokenStorageService } from '@core/services';
+import { catchError, firstValueFrom, from, switchMap, throwError } from 'rxjs';
 
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
     const router = inject(Router);
     const authService = inject(AuthService);
+    const tokenStorage = inject(TokenStorageService);
 
     const setAuthHeader = (request: typeof req) => {
-        const token = localStorage.getItem(ACCESS_TOKEN_KEY);
+        const token = tokenStorage.getAccessToken();
         if (token) {
             return request.clone({
                 headers: request.headers.set(AUTH_HEADER_KEY, `${AUTH_SCHEME_KEY} ${token}`)
@@ -20,9 +22,22 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
     };
 
     const handleUnauthorized = async (error: any) => {
-        if (await authService.isLoggedIn()) {
-            const newReq = setAuthHeader(req);
-            return next(newReq);
+        if (tokenStorage.isLoggedIn()) {
+            if (tokenStorage.needsTokenRefresh()) {
+                try {
+                    const newAccessToken = await firstValueFrom(authService.refreshAccessToken());
+                    tokenStorage.setAccessToken(newAccessToken);
+
+                    const newReq = setAuthHeader(req);
+                    return next(newReq);
+                } catch {
+                    await router.navigate([PAGE_ROUTES.AUTH_LOGIN]);
+                    return throwError(() => error);
+                }
+            } else {
+                const newReq = setAuthHeader(req);
+                return next(newReq);
+            }
         }
 
         await router.navigate([PAGE_ROUTES.AUTH_LOGIN]);
