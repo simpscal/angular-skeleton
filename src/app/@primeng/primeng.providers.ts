@@ -1,4 +1,3 @@
-// https://github.com/primefaces/primeng/tree/master/packages/themes/src/presets
 import { definePreset } from '@primeng/themes';
 import Aura from '@primeng/themes/aura';
 import { MessageService } from 'primeng/api';
