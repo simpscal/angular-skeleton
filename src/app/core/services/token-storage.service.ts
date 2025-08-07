@@ -36,11 +36,7 @@ export class TokenStorageService {
         return !!(this.getAccessToken() && this.getRefreshToken());
     }
 
-    isTokenExpired(token: string | null) {
-        if (!token) {
-            return true;
-        }
-
+    isTokenExpired(token: string) {
         try {
             const decodedToken = jwtDecode(token);
             const currentTime = Date.now() / 1000;
