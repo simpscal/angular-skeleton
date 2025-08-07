@@ -17,7 +17,7 @@ import {
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SvgIconComponent {
-    private _elementRef = inject(ElementRef);
+    private elementRef = inject(ElementRef);
 
     data = input<string>('');
     width = input<string>('5rem');
@@ -36,7 +36,7 @@ export class SvgIconComponent {
     }
 
     private generateIcon() {
-        const element = this._elementRef.nativeElement;
+        const element = this.elementRef.nativeElement;
         element.innerHTML = '';
 
         const div = document.createElement('div');

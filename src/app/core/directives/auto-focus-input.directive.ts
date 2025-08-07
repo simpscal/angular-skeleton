@@ -5,7 +5,7 @@ import { afterNextRender, Directive, ElementRef, inject, input } from '@angular/
     standalone: true
 })
 export class AutoFocusInputDirective {
-    private _elementRef = inject(ElementRef);
+    private elementRef = inject(ElementRef);
 
     inputOrder = input<number>(1);
     timeout = input<number>(1000);
@@ -13,7 +13,7 @@ export class AutoFocusInputDirective {
     constructor() {
         afterNextRender(() => {
             setTimeout(() => {
-                const inputs = this._elementRef.nativeElement.querySelectorAll(
+                const inputs = this.elementRef.nativeElement.querySelectorAll(
                     'input:not([type="hidden"]), textarea, select'
                 );
 

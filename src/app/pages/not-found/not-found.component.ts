@@ -9,9 +9,9 @@ import { Router } from '@angular/router';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PageNotFoundComponent {
-    private _router = inject(Router);
+    private router = inject(Router);
 
     onNavigateToHome() {
-        this._router.navigate(['/']);
+        this.router.navigate(['/']);
     }
 }

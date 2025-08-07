@@ -6,14 +6,14 @@ import { BoatViewModel } from '../models/boat';
 
 @Injectable()
 export class BoatService {
-    private _apiService = inject(ApiService);
+    private apiService = inject(ApiService);
 
     getBoats() {
-        return this._apiService.get<BoatViewModel[]>('boats').pipe(delay(1000));
+        return this.apiService.get<BoatViewModel[]>('boats').pipe(delay(1000));
     }
 
     getBoat(id: string) {
-        return this._apiService.get<BoatViewModel>(`boats/${id}`).pipe(delay(1000));
+        return this.apiService.get<BoatViewModel>(`boats/${id}`).pipe(delay(1000));
     }
 
     saveBoat(boat: BoatViewModel) {

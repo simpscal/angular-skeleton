@@ -20,12 +20,12 @@ const PRIMES = [ButtonModule, InputTextModule, MessageModule];
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent {
-    private _router = inject(Router);
-    private _formBuilder = inject(FormBuilder);
-    private _authService = inject(AuthService);
-    private _tokenStorageService = inject(TokenStorageService);
+    private router = inject(Router);
+    private formBuilder = inject(FormBuilder);
+    private authService = inject(AuthService);
+    private tokenStorageService = inject(TokenStorageService);
 
-    form = this._formBuilder.group({
+    form = this.formBuilder.group({
         email: ['', [Validators.required, Validators.email]],
         password: ['', [Validators.required, Validators.minLength(8)]]
     });
@@ -35,10 +35,10 @@ export class LoginComponent {
     }
 
     onLogin() {
-        this._authService.login(new AuthViewModel(this.form.value)).subscribe(() => {
-            this._router.navigate(['/']).then();
+        this.authService.login(new AuthViewModel(this.form.value)).subscribe(() => {
+            this.router.navigate(['/']).then();
 
-            this._tokenStorageService.setTokens('access', 'refresh');
+            this.tokenStorageService.setTokens('access', 'refresh');
         });
     }
 }

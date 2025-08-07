@@ -11,13 +11,13 @@ const EXAMPLE_TOKEN =
     providedIn: 'root'
 })
 export class AuthService {
-    private _apiService = inject(ApiService);
+    private apiService = inject(ApiService);
 
     refreshAccessToken() {
         return of(EXAMPLE_TOKEN);
     }
 
     login(auth: AuthViewModel) {
-        return this._apiService.post('auth', auth.toRequest()).pipe(delay(1000));
+        return this.apiService.post('auth', auth.toRequest()).pipe(delay(1000));
     }
 }

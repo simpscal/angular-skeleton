@@ -5,14 +5,14 @@ import { TokenStorageService } from '@core/services';
 
 @Injectable({ providedIn: 'root' })
 export class GuestGuard implements CanActivate {
-    private _router = inject(Router);
-    private _tokenStorageService = inject(TokenStorageService);
+    private router = inject(Router);
+    private tokenStorageService = inject(TokenStorageService);
 
     canActivate() {
-        const isLoggedIn = this._tokenStorageService.isLoggedIn();
+        const isLoggedIn = this.tokenStorageService.isLoggedIn();
 
         if (isLoggedIn) {
-            this._router.navigate([PAGE_ROUTES.ADMIN]);
+            this.router.navigate([PAGE_ROUTES.ADMIN]);
 
             return false;
         }

@@ -5,14 +5,14 @@ import { TokenStorageService } from '@core/services';
 
 @Injectable({ providedIn: 'root' })
 export class AuthGuard implements CanActivate {
-    private _router = inject(Router);
-    private _tokenStorageService = inject(TokenStorageService);
+    private router = inject(Router);
+    private tokenStorageService = inject(TokenStorageService);
 
     canActivate() {
-        const isLoggedIn = this._tokenStorageService.isLoggedIn();
+        const isLoggedIn = this.tokenStorageService.isLoggedIn();
 
         if (!isLoggedIn) {
-            this._router.navigate([PAGE_ROUTES.AUTH_LOGIN]);
+            this.router.navigate([PAGE_ROUTES.AUTH_LOGIN]);
 
             return false;
         }

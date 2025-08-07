@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
     providedIn: 'root'
 })
 export class ApiService {
-    private _httpClient = inject(HttpClient);
+    private httpClient = inject(HttpClient);
 
     get headers() {
         return new HttpHeaders({
@@ -16,19 +16,19 @@ export class ApiService {
     }
 
     get<T>(url: string): Observable<T> {
-        return this._httpClient.get<T>(`${environment.baseUrl}/${url}`, { headers: this.headers });
+        return this.httpClient.get<T>(`${environment.baseUrl}/${url}`, { headers: this.headers });
     }
 
     post<T>(url: string, data: any): Observable<T> {
-        return this._httpClient.post<T>(`${environment.baseUrl}/${url}`, data, { headers: this.headers });
+        return this.httpClient.post<T>(`${environment.baseUrl}/${url}`, data, { headers: this.headers });
     }
 
     put<T>(url: string, data: any): Observable<T> {
-        return this._httpClient.put<T>(`${environment.baseUrl}/${url}`, data, { headers: this.headers });
+        return this.httpClient.put<T>(`${environment.baseUrl}/${url}`, data, { headers: this.headers });
     }
 
     delete<T>(url: string): Observable<T> {
-        return this._httpClient.delete<T>(`${environment.baseUrl}/${url}`, { headers: this.headers });
+        return this.httpClient.delete<T>(`${environment.baseUrl}/${url}`, { headers: this.headers });
     }
 
     postFile<T>(url: string, files: File[]): Observable<T> {
@@ -38,7 +38,7 @@ export class ApiService {
             formData.append(file.name, file, file.name);
         }
 
-        return this._httpClient.post<T>(`${environment.baseUrl}/${url}`, formData, {
+        return this.httpClient.post<T>(`${environment.baseUrl}/${url}`, formData, {
             headers: this.headers,
             reportProgress: true
         });

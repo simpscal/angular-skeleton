@@ -15,7 +15,7 @@ import { BoatService } from '../../services';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BoatsComponent {
-    private _boatService = inject(BoatService);
+    private boatService = inject(BoatService);
 
     boats = signal<BoatViewModel[]>([]);
 
@@ -24,6 +24,6 @@ export class BoatsComponent {
     }
 
     loadBoats() {
-        this._boatService.getBoats().subscribe((response) => this.boats.set(response));
+        this.boatService.getBoats().subscribe((response: BoatViewModel[]) => this.boats.set(response));
     }
 }

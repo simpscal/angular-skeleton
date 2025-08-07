@@ -21,11 +21,11 @@ const PRIMES = [ButtonModule, InputTextModule, FormsModule];
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BoatDetailsComponent {
-    private _router = inject(Router);
-    private _activatedRouter = inject(ActivatedRoute);
-    private _boatService = inject(BoatService);
+    private router = inject(Router);
+    private activatedRouter = inject(ActivatedRoute);
+    private boatService = inject(BoatService);
 
-    ID = this._activatedRouter.snapshot.params['id'];
+    ID = this.activatedRouter.snapshot.params['id'];
 
     isLoading = signal(false);
     isConfirmationPopupVisible = signal(false);
@@ -39,10 +39,10 @@ export class BoatDetailsComponent {
     getBoatDetails() {
         this.isLoading.set(true);
 
-        this._boatService
+        this.boatService
             .getBoat(this.ID)
             .pipe(finalize(() => this.isLoading.set(false)))
-            .subscribe((boat) => {
+            .subscribe((boat: BoatViewModel) => {
                 this.boat.set(boat);
             });
     }
@@ -54,11 +54,11 @@ export class BoatDetailsComponent {
     onDeleteBoat = () => {
         this.isLoading.set(true);
 
-        this._boatService
+        this.boatService
             .deleteBoat(this.ID)
             .pipe(finalize(() => this.isLoading.set(false)))
             .subscribe(() => {
-                this._router.navigate([PAGE_ROUTES.ADMIN_BOATS]);
+                this.router.navigate([PAGE_ROUTES.ADMIN_BOATS]);
             });
     };
 }
