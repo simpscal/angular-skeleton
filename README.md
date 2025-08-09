@@ -1,156 +1,161 @@
-## Technologies Used
+# Angular 19 Skeleton Project
 
-|       Type       |          Name           |
-| :--------------: | :---------------------: |
-|   Css Library    |        Tailwind         |
-|    UI Library    |         PrimeNG         |
-| State Management |          NGXS           |
-|      Tools       | Eslint, Husky, Prettier |
-| Icons Generation |        svg-to-ts        |
-|   Mock Server    |       json-server       |
+## 🚀 Features
 
-## Project Structure
+- **Angular 19**: Latest Angular framework with standalone components
+- **Modern Authentication**: JWT-based auth with token refresh and concurrent request handling
+- **Feature Sliced Design**: Clean, scalable architecture inspired by FSD principles
+- **User Management**: Complete user profile management with PrimeNG components
+- **Responsive UI**: Modern interface built with Tailwind CSS and PrimeNG
+- **Type Safety**: Comprehensive TypeScript implementation with strict typing
+- **Code Quality**: ESLint, Prettier, and Husky for consistent code standards
+- **State Management**: NGXS for predictable state management
+- **Testing Ready**: Configured for unit and integration testing
 
-### core
+## 🛠 Technologies Used
 
-Angular-related things shared across modules:
+| Category             | Technology              | Purpose                        |
+| -------------------- | ----------------------- | ------------------------------ |
+| **Framework**        | Angular 19              | Core application framework     |
+| **Styling**          | Tailwind CSS            | Utility-first CSS framework    |
+| **UI Library**       | PrimeNG                 | Rich UI component library      |
+| **State Management** | NGXS                    | Reactive state management      |
+| **Language**         | TypeScript              | Type-safe JavaScript           |
+| **Code Quality**     | ESLint, Prettier, Husky | Linting, formatting, git hooks |
+| **Icons**            | svg-to-ts               | SVG icon generation            |
+| **Mock Server**      | json-server             | API mocking for development    |
+| **Build Tool**       | Angular CLI             | Development and build tooling  |
 
-- directives
-- guards
-- pipes
-- interceptors
-- services
+## 🚦 Getting Started
 
-### store
+### Prerequisites
 
-The global store management.
+- Node.js (v18 or higher)
+- npm or yarn
+- Angular CLI (`npm install -g @angular/cli`)
 
-### ui
+### Installation
 
-UI components used across modules.
+1. **Clone the repository**
 
-> These components should handle non-business logic and should not depend on features.
+    ```bash
+    git clone <repository-url>
+    cd angular-skeleton
+    ```
 
-- button
-- popup
-- chart
+2. **Install dependencies**
 
-### layouts
+    ```bash
+    npm install
+    ```
 
-Components used to conduct layouts:
+3. **Start the development server**
 
-- admin-layout
-- main-layout
-- mobile-layout
-- account-settings-layout
+    ```bash
+    npm start
+    ```
 
-### pages
+4. **Open your browser**
+   Navigate to `http://localhost:4200`
 
-Pages handling non-business logic:
-
-- landing-page
-- note-found-page
-
-### shared
-
-Typescript-related things shared across modules:
-
-- constants
-- models
-- enums
-- utilities
-
-### features
-
-Pages handling business logic:
-
-- dashboard
-- email-settings
-- account-profile
-
-### features/shared
-
-Features shared across featured modules.
-
-## Usage
-
-### 1. Svg Icons
-
-#### Add svg icons to the `icons` folder
-
-```
-src/
-|- assets/
-|  |- icons/
-|     |- icon-chevron-down.svg
-|     |- icons.constants.ts
-```
-
-#### Generate constants from svg icons
+### Available Scripts
 
 ```bash
-npm run generate-icons
+# Development
+npm start              # Start development server
+npm run build          # Build for production
+npm run build:dev      # Build for development
+npm run watch          # Build and watch for changes
+
+# Code Quality
+npm run lint           # Run ESLint
+npm run lint:fix       # Fix ESLint issues
+npm run format         # Format code with Prettier
+
+# Testing
+npm test               # Run unit tests
+npm run test:watch     # Run tests in watch mode
+npm run e2e            # Run end-to-end tests
+
+# Utilities
+npm run generate-icons # Generate icon constants from SVG files
+npm run json-server    # Start mock API server
 ```
 
-> Svg icons from the `icons` folder will be collected by the `svg-to-ts` package. Constants will be
-> generated and allocated inside the `icons.constants.ts` file in the `icons` folder.
+## 🔐 Authentication System
 
-#### Use icons in templates
+The project includes a robust authentication system with:
 
-```html
-<app-svg-icon
-    [data]="svgIconChevronDown.data"
-    [width]="20">
-</app-svg-icon>
-```
+- **JWT Token Management**: Secure token storage and refresh
+- **Concurrent Request Handling**: Queue-based token refresh for multiple simultaneous requests
+- **Route Guards**: Protection for authenticated routes
+- **Automatic Logout**: Session management and automatic redirects
 
-### 2. Json-Server
+### Authentication Flow
 
-#### Add mock data to the `data/db.json` file
+1. User logs in with credentials
+2. JWT tokens (access + refresh) are stored securely
+3. API requests automatically include authentication headers
+4. Token refresh happens transparently when needed
+5. Concurrent requests are queued during token refresh
 
-```
-data/db.json
-src/
-```
+## 🎨 UI Components
 
-**Example**:
+### SVG Icons
 
-```json
-{
-    "users": [
-        {
-            "id": "1",
-            "name": "Bob"
-        },
-        {
-            "id": "2",
-            "name": "Alice"
-        }
-    ]
-}
-```
+1. **Add SVG icons** to `src/assets/icons/`
+2. **Generate constants**:
 
-> The api `/users` is exposed at `http://localhost:3000`.
+    ```bash
+    npm run generate-icons
+    ```
 
-#### Add custom routes to the `routes.json` file (optional)
+3. **Use in templates**:
 
-```
-data/routes.json
-src/
-```
+    ```html
+    <app-svg-icon
+        [data]="iconName.data"
+        [width]="24">
+    </app-svg-icon>
+    ```
 
-**Example**:
+### PrimeNG Integration
 
-```json
-{
-    "/api/*": "/$1"
-}
-```
+The project uses PrimeNG components with:
 
-> /api/users → /users
+- Custom theme configuration
+- Tailwind CSS integration
+- Responsive design patterns
+- Accessibility features
 
-#### Run server
+## 🧪 Development Tools
 
-```bash
-npm run json-server
-```
+### Mock API Server
+
+1. **Configure mock data** in `data/db.json`:
+
+    ```json
+    {
+        "users": [{ "id": 1, "name": "John Doe", "email": "john@example.com" }]
+    }
+    ```
+
+2. **Start mock server**:
+
+    ```bash
+    npm run json-server
+    ```
+
+3. **API available at**: `http://localhost:3000`
+
+### Code Quality
+
+- **ESLint**: Configured with Angular and TypeScript rules
+- **Prettier**: Consistent code formatting
+- **Husky**: Pre-commit hooks for quality checks
+- **Naming Conventions**: Documented standards for consistency
+
+## 📚 Documentation
+
+- **Architecture Guide**: `docs/architecture.md` - Detailed layer responsibilities and dependencies
+- **Naming Conventions**: `docs/naming.md` - TypeScript and Angular naming standards
