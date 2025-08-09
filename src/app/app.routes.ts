@@ -4,7 +4,7 @@ import { AuthGuard, GuestGuard } from '@core/guards';
 const ROUTES: Routes = [
     {
         path: 'auth',
-        loadChildren: () => import('./features/auth/auth.routes'),
+        loadChildren: () => import('./pages/auth/auth.routes'),
         canActivate: [GuestGuard]
     },
     {
@@ -14,7 +14,7 @@ const ROUTES: Routes = [
         children: [
             {
                 path: '',
-                loadChildren: () => import('./features/admin/admin.routes')
+                loadChildren: () => import('./pages/admin/admin.routes')
             }
         ]
     },

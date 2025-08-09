@@ -35,11 +35,13 @@
             "@layouts/*": ["src/app/layouts/*"],
             "@pages": ["src/app/pages"],
             "@pages/*": ["src/app/pages/*"],
+            "@app/pages": ["src/app/pages"],
+            "@app/pages/*": ["src/app/pages/*"],
             "@app/icons": ["src/assets/icons"],
             "@app/icons/*": ["src/assets/icons/*"],
             "@app/shared": ["src/app/shared"],
             "@app/shared/*": ["src/app/shared/*"],
-            "@app/features/": ["src/app/features"],
+            "@app/features": ["src/app/features"],
             "@app/features/*": ["src/app/features/*"]
         }
     },
