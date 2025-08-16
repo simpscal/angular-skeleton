@@ -1,6 +1,6 @@
 {
     "extends": "./tsconfig.json",
-    "include": ["src"],
+    "include": ["apps/angular-skeleton/src", "apps/shell/src", "apps/shell/*.ts", "libs/core/src", "libs/ui/src", "libs/shared/src"],
     "files": ["tailwind.config.js"],
     "exclude": ["node_modules", "dist"]
 }

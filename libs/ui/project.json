@@ -1,0 +1,24 @@
+{
+    "name": "ui",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "libs/ui/src",
+    "prefix": "ui",
+    "projectType": "library",
+    "tags": [
+        "ui"
+    ],
+    "targets": {
+        "build": {
+            "executor": "@nx/angular:ng-packagr-lite",
+            "outputs": [
+                "{workspaceRoot}/dist/{projectRoot}"
+            ],
+            "options": {
+                "project": "libs/ui/ng-package.json"
+            }
+        },
+        "lint": {
+            "executor": "@nx/eslint:lint"
+        }
+    }
+}

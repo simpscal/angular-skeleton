@@ -1,0 +1,26 @@
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+        "sourceMap": true,
+        "declaration": false,
+        "moduleResolution": "node",
+        "experimentalDecorators": true,
+        "importHelpers": true,
+        "target": "ES2022",
+        "module": "ES2022",
+        "lib": ["ES2022", "dom"],
+        "baseUrl": "./",
+        "paths": {
+            "@core": ["libs/core/src/index.ts"],
+            "@core/*": ["libs/core/src/lib/*"],
+            "@shared": ["libs/shared/src/index.ts"],
+            "@shared/*": ["libs/shared/src/lib/*"],
+            "@ui": ["libs/ui/src/index.ts"],
+            "@ui/*": ["libs/ui/src/lib/*"],
+            "core": ["libs/core/src/index.ts"],
+            "shared": ["libs/shared/src/index.ts"],
+            "ui": ["libs/ui/src/index.ts"],
+            "admin/Routes": ["apps/admin/src/app/app.routes.ts"]
+        }
+    }
+}
