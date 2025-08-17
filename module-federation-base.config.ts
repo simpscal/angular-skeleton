@@ -1,6 +1,6 @@
 import { ModuleFederationConfig, SharedLibraryConfig } from '@nx/module-federation';
 
-const SHARED_LIBRARIES = ['@angular', 'shared', 'ui'];
+const SHARED_LIBRARIES = ['@angular', 'shared', 'ui', 'core', 'environments'];
 const SHARED_CONFIGS = {
     singleton: true,
     strictVersion: true,

@@ -1,3 +1,4 @@
+import { provideHttpClient } from '@angular/common/http';
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { definePreset } from '@primeng/themes';
@@ -11,6 +12,7 @@ export const appConfig: ApplicationConfig = {
     providers: [
         provideZoneChangeDetection({ eventCoalescing: true }),
         provideRouter(appRoutes),
+        provideHttpClient(),
         providePrimeNG({
             theme: {
                 preset: definePreset(Aura, {}),

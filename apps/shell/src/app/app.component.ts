@@ -9,6 +9,4 @@ import { ToolbarModule } from 'primeng/toolbar';
     selector: 'app-root',
     template: '<router-outlet></router-outlet>'
 })
-export class AppComponent {
-    constructor() {}
-}
+export class AppComponent {}
