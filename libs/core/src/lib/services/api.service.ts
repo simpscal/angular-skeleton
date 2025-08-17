@@ -14,9 +14,6 @@ export class ApiService {
             'Content-Type': 'application/json'
         });
     }
-    constructor() {
-        console.log(environment.baseUrl);
-    }
 
     get<T>(url: string): Observable<T> {
         return this.httpClient.get<T>(`${environment.baseUrl}/${url}`, { headers: this.headers });
