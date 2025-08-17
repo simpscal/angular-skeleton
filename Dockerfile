@@ -1,22 +1,37 @@
-FROM node:18 AS builder
-ARG CONFIGURATION='development'
+# Stage 1: Build all applications
+FROM node:18-alpine AS builder
 
 WORKDIR /app
 
+# Copy dependency definitions
+COPY package.json package-lock.json* nx.json ./
+
+# Install dependencies cleanly
+RUN npm ci
+
+# Copy the rest of the source code
 COPY . .
 
-RUN npm install -g @angular/cli
+# Build all projects for production
+RUN npx nx run-many --target=build --all --configuration=production
 
-RUN npm install
+# Stage 2: Serve with Nginx
+FROM nginx:stable-alpine
 
-RUN npm run build --configuration=$CONFIGURATION
+# Copy the custom Nginx configuration
+COPY nginx.conf /etc/nginx/nginx.conf
 
-FROM nginx:alpine
-
+# Remove the default Nginx static content
 RUN rm -rf /usr/share/nginx/html/*
 
-COPY --from=builder /app/dist/app /usr/share/nginx/html
+# Copy the built applications from the builder stage
+COPY --from=builder /app/dist/apps /usr/share/nginx/html
 
+# Expose ports for incoming traffic
 EXPOSE 80
+EXPOSE 4201
+EXPOSE 4202
+EXPOSE 4203
 
+# Start Nginx in the foreground
 CMD ["nginx", "-g", "daemon off;"]

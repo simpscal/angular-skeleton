@@ -4,7 +4,6 @@ const SHARED_LIBRARIES = ['@angular', 'shared', 'ui', 'core', 'environments'];
 const SHARED_CONFIGS = {
     singleton: true,
     strictVersion: true,
-    requiredVersion: 'auto',
     eager: false
 };
 

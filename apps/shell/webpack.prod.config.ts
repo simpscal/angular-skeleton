@@ -9,7 +9,12 @@ import config from './module-federation.config';
  */
 export default withModuleFederation(
     {
-        ...config
+        ...config,
+        remotes: [
+            ['admin', 'http://localhost:4201'],
+            ['parent', 'http://localhost:4202'],
+            ['provider', 'http://localhost:4203']
+        ]
         /*
          * Remote overrides for production.
          * Each entry is a pair of a unique name and the URL where it is deployed.
