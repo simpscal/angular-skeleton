@@ -19,6 +19,7 @@ function handleError(error: HttpErrorResponse, messageService: MessageService): 
         case HttpStatusCode.Forbidden:
             messageService.add({
                 severity: 'error',
+                summary: 'Error',
                 detail: 'You do not have permission to access this resource',
                 life: 3000
             });
@@ -26,6 +27,7 @@ function handleError(error: HttpErrorResponse, messageService: MessageService): 
         case HttpStatusCode.InternalServerError:
             messageService.add({
                 severity: 'error',
+                summary: 'Error',
                 detail: 'Internal server error',
                 life: 3000
             });
@@ -33,6 +35,7 @@ function handleError(error: HttpErrorResponse, messageService: MessageService): 
         case HttpStatusCode.NotFound:
             messageService.add({
                 severity: 'error',
+                summary: 'Error',
                 detail: 'Resource not found',
                 life: 3000
             });
@@ -40,6 +43,7 @@ function handleError(error: HttpErrorResponse, messageService: MessageService): 
         case HttpStatusCode.BadRequest:
             messageService.add({
                 severity: 'error',
+                summary: 'Error',
                 detail: error.error?.message || 'Bad request',
                 life: 3000
             });
@@ -47,6 +51,7 @@ function handleError(error: HttpErrorResponse, messageService: MessageService): 
         case HttpStatusCode.Unauthorized:
             messageService.add({
                 severity: 'error',
+                summary: 'Error',
                 detail: 'Unauthorized access',
                 life: 3000
             });
@@ -55,12 +60,14 @@ function handleError(error: HttpErrorResponse, messageService: MessageService): 
             if (error.status >= 500) {
                 messageService.add({
                     severity: 'error',
+                    summary: 'Error',
                     detail: 'Server error occurred',
                     life: 3000
                 });
             } else if (error.status >= 400) {
                 messageService.add({
                     severity: 'error',
+                    summary: 'Error',
                     detail: error.error?.message || 'Client error occurred',
                     life: 3000
                 });
