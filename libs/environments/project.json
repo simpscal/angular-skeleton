@@ -6,38 +6,6 @@
     "projectType": "library",
     "tags": [],
     "targets": {
-        "build": {
-            "configurations": {
-                "development": {
-                    "fileReplacements": [
-                        {
-                            "replace": "libs/environments/src/lib/environments/environment.ts",
-                            "with": "libs/environments/src/lib/environments/environment.dev.ts"
-                        }
-                    ]
-                },
-                "production": {
-                    "fileReplacements": [
-                        {
-                            "replace": "libs/environments/src/lib/environments/environment.ts",
-                            "with": "libs/environments/src/lib/environments/environment.prod.ts"
-                        }
-                    ]
-                }
-            },
-            "defaultConfiguration": "development"
-        },
-        "serve": {
-            "configurations": {
-                "production": {
-                    "buildTarget": "environments:build:production"
-                },
-                "development": {
-                    "buildTarget": "environments:build:development"
-                }
-            },
-            "defaultConfiguration": "development"
-        },
         "lint": {
             "executor": "@nx/eslint:lint"
         }
