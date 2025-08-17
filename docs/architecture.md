@@ -4,12 +4,69 @@ This document outlines the architectural structure of the Angular 19 application
 
 ## Table of Contents
 
+- [Nx Monorepo Architecture](#nx-monorepo-architecture)
 - [Architecture Overview](#architecture-overview)
 - [Layer Structure](#layer-structure)
 - [Layer Responsibilities](#layer-responsibilities)
 - [Dependency Rules](#dependency-rules)
 - [Component Dependencies](#component-dependencies)
-- [Directory Structure](#directory-structure)
+
+## Nx Monorepo Architecture
+
+### Application and Library Dependencies
+
+The workspace is divided into two main parts: `apps` and `libs`.
+
+- **Applications (`apps/`)**: These are the deployable units of the monorepo. An application's primary role is to assemble and configure the required libraries. Applications should contain minimal logic and act as a "composition root" for the features they expose.
+- **Libraries (`libs/`)**: These are the building blocks of the application and can be reused across multiple applications.
+
+#### Library Dependency Flow
+
+```text
++---------------------------------------------------+
+|                   Applications                    |
+|                      (apps)                       |
++---------------------------------------------------+
+                         |
+                         v
++---------------------------------------------------+
+|                Feature Libraries                  |
+|                (libs/features/*)                  |
++---------------------------------------------------+
+                         |
+                         v
++---------------------------------------------------+
+|                  Core Libraries                   |
+|                   (libs/core/*)                   |
++---------------------------------------------------+
+                         |
+                         v
++---------------------------------------------------+
+|                    UI Libraries                   |
+|                     (libs/ui/*)                   |
++---------------------------------------------------+
+                         |
+                         v
++---------------------------------------------------+
+|                 Shared Libraries                  |
+|                  (libs/shared/*)                  |
++---------------------------------------------------+
+```
+
+**Dependency Rules:**
+
+1. **Applications (`apps`)**: Can depend on any library type (`feature`, `core`, `ui`, `shared`).
+2. **Feature Libraries (`libs/features`)**: Encapsulate specific business functionality.
+    - Can depend on `core`, `ui`, and `shared` libraries.
+    - **Cannot** depend on other `feature` libraries or `apps`.
+3. **Core Libraries (`libs/core`)**: Provide application-wide services and infrastructure (e.g., auth, HTTP).
+    - Can depend on `ui` and `shared` libraries.
+    - **Cannot** depend on `feature` libraries or `apps`.
+4. **UI Libraries (`libs/ui`)**: Contain reusable, logic-less presentational components.
+    - Can only depend on `shared` libraries.
+    - **Cannot** depend on `core`, `feature` libraries, or `apps`.
+5. **Shared Libraries (`libs/shared`)**: Contain pure, framework-agnostic code (e.g., types, utils).
+    - Have **no dependencies** on any other libraries in the workspace.
 
 ## Architecture Overview
 
@@ -110,7 +167,7 @@ layouts/
 
 **Example Structure**:
 
-```
+```text
 pages/
 ├── auth/
 │   ├── auth.component.ts
@@ -148,7 +205,7 @@ pages/
 
 **Example Structure**:
 
-```
+```text
 features/
 └── user/
     ├── components/
