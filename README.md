@@ -24,13 +24,32 @@
 | **Code Quality**     | ESLint, Prettier, Husky | Linting, formatting, git hooks |
 | **Icons**            | svg-to-ts               | SVG icon generation            |
 | **Mock Server**      | json-server             | API mocking for development    |
+| **Build System**     | Nx                      | Monorepo build system          |
 | **Build Tool**       | Angular CLI             | Development and build tooling  |
+
+## 🚀 Available Scripts
+
+- `npm start` - Start all applications in development mode
+- `npm run start:admin` - Start shell with admin remote
+- `npm run start:parent` - Start shell with parent remote
+- `npm run start:provider` - Start shell with provider remote
+- `npm run build:dev` - Build all applications for development
+- `npm run build:prod` - Build all applications for production
+- `npm run build:admin:dev` - Build admin app for development
+- `npm run build:parent:dev` - Build parent app for development
+- `npm run build:provider:dev` - Build provider app for development
+- `npm run build:admin:prod` - Build admin app for production
+- `npm run build:parent:prod` - Build parent app for production
+- `npm run build:provider:prod` - Build provider app for production
+- `npm test` - Run tests
+- `npm run lint` - Lint the codebase
+- `npm run json-server` - Start the mock JSON server
 
 ## 🚦 Getting Started
 
 ### Prerequisites
 
-- Node.js (v18 or higher)
+- Node.js (v20 or higher)
 - npm or yarn
 - Angular CLI (`npm install -g @angular/cli`)
 
