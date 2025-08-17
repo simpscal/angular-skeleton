@@ -1,0 +1,23 @@
+<p-toolbar>
+    <div class="p-toolbar-group-start">
+        <p-button
+            type="button"
+            [rounded]="true"
+            [text]="true">
+            <ng-template #icon>
+                <app-svg-icon [data]="MENU_ICON"></app-svg-icon>
+            </ng-template>
+        </p-button>
+    </div>
+
+    <div class="p-toolbar-group-center">
+        <span class="text-xl font-semibold">Parent</span>
+    </div>
+
+    <div class="p-toolbar-group-end">
+        <p-avatar
+            shape="circle"
+            label="U">
+        </p-avatar>
+    </div>
+</p-toolbar>

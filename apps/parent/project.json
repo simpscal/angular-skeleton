@@ -1,9 +1,9 @@
 {
-    "name": "shell",
+    "name": "parent",
     "$schema": "../../node_modules/nx/schemas/project-schema.json",
     "projectType": "application",
     "prefix": "app",
-    "sourceRoot": "apps/shell/src",
+    "sourceRoot": "apps/parent/src",
     "tags": [],
     "implicitDependencies": ["shared", "ui", "core", "environments"],
     "targets": {
@@ -11,24 +11,21 @@
             "executor": "@nx/angular:webpack-browser",
             "outputs": ["{options.outputPath}"],
             "options": {
-                "outputPath": "dist/apps/shell",
-                "index": "apps/shell/src/index.html",
-                "main": "apps/shell/src/main.ts",
+                "outputPath": "dist/apps/parent",
+                "index": "apps/parent/src/index.html",
+                "main": "apps/parent/src/main.ts",
                 "polyfills": ["zone.js"],
-                "tsConfig": "apps/shell/tsconfig.app.json",
+                "tsConfig": "apps/parent/tsconfig.app.json",
                 "inlineStyleLanguage": "scss",
                 "assets": [
                     {
                         "glob": "**/*",
-                        "input": "apps/shell/public"
+                        "input": "apps/parent/public"
                     }
                 ],
-                "stylePreprocessorOptions": {
-                    "includePaths": ["apps/shell/styles"]
-                },
-                "styles": ["apps/shell/styles/style.scss"],
+                "styles": ["apps/parent/src/styles.scss"],
                 "customWebpackConfig": {
-                    "path": "apps/shell/webpack.config.ts"
+                    "path": "apps/parent/webpack.config.ts"
                 }
             },
             "configurations": {
@@ -47,7 +44,7 @@
                     ],
                     "outputHashing": "all",
                     "customWebpackConfig": {
-                        "path": "apps/shell/webpack.prod.config.ts"
+                        "path": "apps/parent/webpack.prod.config.ts"
                     },
                     "fileReplacements": [
                         {
@@ -75,25 +72,26 @@
         },
         "serve": {
             "continuous": true,
-            "executor": "@nx/angular:module-federation-dev-server",
+            "executor": "@nx/angular:dev-server",
             "options": {
-                "port": 4200,
-                "publicHost": "http://localhost:4200"
+                "port": 4202,
+                "publicHost": "http://localhost:4202"
             },
             "configurations": {
                 "production": {
-                    "buildTarget": "shell:build:production"
+                    "buildTarget": "parent:build:production"
                 },
                 "development": {
-                    "buildTarget": "shell:build:development"
+                    "buildTarget": "parent:build:development"
                 }
             },
-            "defaultConfiguration": "development"
+            "defaultConfiguration": "development",
+            "dependsOn": ["shell:serve"]
         },
         "extract-i18n": {
             "executor": "@angular-devkit/build-angular:extract-i18n",
             "options": {
-                "buildTarget": "shell:build"
+                "buildTarget": "parent:build"
             }
         },
         "lint": {
@@ -102,17 +100,19 @@
         "serve-static": {
             "continuous": true,
             "executor": "@nx/web:file-server",
+            "defaultConfiguration": "production",
             "options": {
-                "buildTarget": "shell:build",
-                "port": 4200,
-                "spa": true
-            }
-        },
-        "deploy": {
-            "executor": "nx:run-commands",
-            "outputs": [],
-            "options": {
-                "command": "rm -rf production && mkdir production && cp -r dist/apps/shell/* production && cp -r dist/apps/{admin,parent} production && http-server -p 3000 -a localhost production"
+                "buildTarget": "parent:build",
+                "port": 4202,
+                "watch": false
+            },
+            "configurations": {
+                "development": {
+                    "buildTarget": "parent:build:development"
+                },
+                "production": {
+                    "buildTarget": "parent:build:production"
+                }
             }
         }
     }

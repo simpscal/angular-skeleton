@@ -23,6 +23,8 @@
         "lib": ["ES2022", "dom"],
         "paths": {
             "admin/Routes": ["apps/admin/src/app/app.routes.ts"],
+            "parent/Routes": ["apps/parent/src/app/app.routes.ts"],
+            "provider/Routes": ["apps/provider/src/app/app.routes.ts"],
             "core": ["libs/core/src/index.ts"],
             "environments": ["libs/environments/src/index.ts"],
             "shared": ["libs/shared/src/index.ts"],
