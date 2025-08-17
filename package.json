@@ -91,14 +91,14 @@
     },
     "svg-to-ts": {
         "srcFiles": [
-            "./src/assets/icons/**/*.svg"
+            "./libs/ui/src/icons/**/*.svg"
         ],
-        "outputDirectory": "./src/assets/icons",
+        "outputDirectory": "./libs/ui/src/icons",
         "interfaceName": "SvgIcon",
         "typeName": "svgIcon",
         "prefix": "svg",
         "fileName": "icons.constants",
-        "additionalModelFile": "./src/assets/icons",
+        "additionalModelFile": "./libs/ui/src/icons",
         "compileSources": true
     },
     "lint-staged": {

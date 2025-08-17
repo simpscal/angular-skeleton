@@ -13,10 +13,24 @@ export const svgIconChevronLeft: {
     name: 'icon_chevron_left',
     data: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"><path fill="currentColor" d="M4.764 9.193a1.144 1.144 0 0 0 0 1.617l6.855 6.855a1.144 1.144 0 0 0 1.618-1.617L7.189 10l6.044-6.048a1.144 1.144 0 0 0-1.617-1.617L4.76 9.19z"/></svg>`
 };
-export type svgIcon = 'icon_chevron_down' | 'icon_chevron_left';
+export const svgIconMenu: {
+    name: 'icon_menu';
+    data: string;
+} = {
+    name: 'icon_menu',
+    data: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M3 5h14M3 10h14M3 15h14"/></svg>`
+};
+export const svgIconUser: {
+    name: 'icon_user';
+    data: string;
+} = {
+    name: 'icon_user',
+    data: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"><circle cx="10" cy="6.5" r="3" stroke="currentColor" stroke-width="1.5"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.5 17.5V16a3 3 0 0 1 3-3h5a3 3 0 0 1 3 3v1.5"/></svg>`
+};
+export type svgIcon = 'icon_chevron_down' | 'icon_chevron_left' | 'icon_menu' | 'icon_user';
 export interface SvgIcon {
     name: svgIcon;
     data: string;
 }
 export type SvgIconNameSubset<T extends Readonly<SvgIcon[]>> = T[number]['name'];
-export const completeIconSet = [svgIconChevronDown, svgIconChevronLeft];
+export const completeIconSet = [svgIconChevronDown, svgIconChevronLeft, svgIconMenu, svgIconUser];

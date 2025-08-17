@@ -5,7 +5,7 @@
     "prefix": "app",
     "sourceRoot": "apps/shell/src",
     "tags": [],
-    "implicitDependencies": ["shared"],
+    "implicitDependencies": ["shared", "ui"],
     "targets": {
         "build": {
             "executor": "@nx/angular:webpack-browser",
@@ -21,10 +21,6 @@
                     {
                         "glob": "**/*",
                         "input": "apps/shell/public"
-                    },
-                    {
-                        "glob": "**/*",
-                        "input": "apps/shell/assets"
                     }
                 ],
                 "stylePreprocessorOptions": {

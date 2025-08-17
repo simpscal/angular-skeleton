@@ -1,49 +1,44 @@
 import { ModuleFederationConfig, SharedLibraryConfig } from '@nx/module-federation';
 
+const SHARED_LIBRARIES = ['@angular', 'shared', 'ui'];
+const SHARED_CONFIGS = {
+    singleton: true,
+    strictVersion: true,
+    requiredVersion: 'auto',
+    eager: false
+};
+
 const config: ModuleFederationConfig = {
     name: '',
     shared: (libraryName: string, sharedConfig: SharedLibraryConfig) => {
+        if (SHARED_LIBRARIES.includes(libraryName)) {
+            return SHARED_CONFIGS;
+        }
+
         return sharedConfig;
     },
     additionalShared: [
         {
             libraryName: '@angular/router',
-            sharedConfig: {
-                singleton: true,
-                strictVersion: true,
-                requiredVersion: 'auto',
-                eager: false
-            }
+            sharedConfig: SHARED_CONFIGS
         },
         {
             libraryName: '@primeng/themes',
-            sharedConfig: {
-                singleton: true,
-                strictVersion: true,
-                requiredVersion: 'auto',
-                eager: false
-            }
+            sharedConfig: SHARED_CONFIGS
         },
         // Add PrimeNG components to be shared below
         {
             libraryName: 'primeng/button',
-            sharedConfig: {
-                singleton: true,
-                strictVersion: true,
-                requiredVersion: 'auto',
-                eager: false
-            }
+            sharedConfig: SHARED_CONFIGS
+        },
+        {
+            libraryName: 'primeng/avatar',
+            sharedConfig: SHARED_CONFIGS
+        },
+        {
+            libraryName: 'primeng/toolbar',
+            sharedConfig: SHARED_CONFIGS
         }
-        // Example:
-        // {
-        //     libraryName: 'primeng/inputtext',
-        //     sharedConfig: {
-        //         singleton: true,
-        //         strictVersion: true,
-        //         requiredVersion: 'auto',
-        //         eager: false
-        //     }
-        // }
     ]
 };
 
