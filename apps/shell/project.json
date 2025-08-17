@@ -5,6 +5,7 @@
     "prefix": "app",
     "sourceRoot": "apps/shell/src",
     "tags": [],
+    "implicitDependencies": ["shared"],
     "targets": {
         "build": {
             "executor": "@nx/angular:webpack-browser",

@@ -22,7 +22,8 @@
         "strictNullChecks": false,
         "lib": ["ES2022", "dom"],
         "paths": {
-            "admin/Routes": ["apps/admin/src/app/app.routes.ts"]
+            "admin/Routes": ["apps/admin/src/app/app.routes.ts"],
+            "shared": ["libs/shared/src/index.ts"]
         },
         "rootDir": "."
     },
