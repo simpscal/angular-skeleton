@@ -8,6 +8,6 @@ import { ToolbarModule } from 'primeng/toolbar';
 @Component({
     imports: [RouterModule, ButtonModule, ToolbarModule, AvatarModule, Toast],
     selector: 'app-root',
-    template: '<p-toast></p-toast><router-outlet></router-outlet>'
+    templateUrl: './app.component.html'
 })
 export class AppComponent {}
